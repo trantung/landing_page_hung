@@ -60,8 +60,12 @@ class OrderController extends Controller {
 		} else {
 			$order['email'] = 'trantunghn196@gmail.com';
 		}
-
-		$order['city'] = $input['city'];
+		if (isset($input['city'])) {
+			$order['city'] = $input['city'];
+		} else {
+			$order['city'] = 'Hà Nội';
+		}
+		// $order['city'] = $input['city'];
 		$order['address'] = $input['detailed'];
 		$order['comment'] = $input['remark'];
 		$order['total_price'] = $input['total_price'];
