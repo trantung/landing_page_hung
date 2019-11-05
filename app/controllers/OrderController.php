@@ -55,7 +55,12 @@ class OrderController extends Controller {
 		$order['status'] = 1;
 		$order['receiver_name'] = $input['fullname'];
 		$order['phone_name'] = $input['phone'];
-		$order['email'] = $input['email'];
+		if (isset($input['email'])) {
+			$order['email'] = $input['email'];
+		} else {
+			$order['email'] = 'trantunghn196@gmail.com';
+		}
+
 		$order['city'] = $input['city'];
 		$order['address'] = $input['detailed'];
 		$order['comment'] = $input['remark'];
