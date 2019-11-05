@@ -3,6 +3,9 @@
 
 
     <div class="content-product" >
+    	<!-- chen slide -->
+    	@include('hung.slide-kh') 
+
        {{ Form::open(array('action' => array('OrderController@store'), 'method' => "POST", 'class' => 'layui-form')) }}
             @if($productFirst)
             <div class="image-p"> 
@@ -27,7 +30,7 @@
         </div>
         <div class="form-group-p">
             <label>Hình Thức</label>
-           <select>
+           <select id="loai">
                <option value="loai-1">hạt mài facet </option>
                <option value="loai-2">hạt mài facet Loại 2</option>
                <option value="loai-3">hạt mài facet Loại 3</option>
@@ -35,11 +38,12 @@
                <option value="loai-5">hạt mài facet Loại 5</option>
                <option value="loai-6">hạt mài facet Loại 6</option>
            </select>
+           <input id='loai-hat' type="hidden" name="loai" value="loai-1"> <!-- lấy giá trị của hình thức, đã viết js lấy tham số -->
         </div>  
 
         <div class="form-group-p">
             <label>Kích thước</label>
-           <select>
+           <select id="kichthuoc">
                <option value="6">Cỡ 6 ly</option>
                <option value="8">Cỡ 8 ly</option>
                <option value="10">Cỡ 10 ly</option>
@@ -47,11 +51,15 @@
                <option value="14">Cỡ 14 ly</option>
                <option value="16">Cỡ 16 ly</option>
            </select>
+             <input id="kt" type="hidden" name="kichthuoc" value="6">    <!-- lấy giá trị của kích thước,  đã viết js lấy tham số -->
         </div>
         <div class="layui-product-meta">
             <div class="layui-product-price"> 
-                <span class="market-price"> <del>{{$config->price_header}}</del> </span>
-                <span class="sale-price"> {{$config->sale_price_header}}</span>
+                <span class="market-price"> <del id="gia_goc">{{$config->price_header}}</del> </span>
+                <span  id="pri-num" class="sale-price"> {{$productFirst->price}} VNĐ</span>
+                 <input type="hidden" id="price_first" name="price_first" value="{{$productFirst->price}}">
+                 <input type="hidden" name="product_id_first" value="{{$productFirst->id}}">
+                 <input type="hidden" name="product_id_first" value="{{$config->price_header}}">
             </div>
         </div>
         <div  class="ranting">
@@ -151,6 +159,23 @@
 <div class="hbg"></div>
 
 <script type="text/javascript">
+	jQuery(document).ready(function($) {
+
+		//  lấy giá trị select loại hat
+		$('#loai').change(function(event) {
+			 var loai = $(this).val();
+			 $('#loai-hat').val(loai);
+		});
+
+		//  lấy giá trị select kích thước
+		$('#kichthuoc').change(function(event) {
+			 var kichthuoc = $(this).val();
+			 $('#kt').val(kichthuoc);
+		});
+		
+	});
+
+
     function chooseProduct(product_id)
     {
         $.ajax({
