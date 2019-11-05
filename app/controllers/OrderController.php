@@ -53,8 +53,18 @@ class OrderController extends Controller {
 		$order = [];
 		$order['money_pay'] = $input['money_pay'];
 		$order['status'] = 1;
-		$order['receiver_name'] = $input['fullname'];
-		$order['phone_name'] = $input['phone'];
+		if (isset($input['fullname'])) {
+			$order['receiver_name'] = $input['fullname'];
+		} else {
+			$order['receiver_name'] = 'trantunghn196@gmail.com';
+		}
+		// $order['receiver_name'] = $input['fullname'];
+		// $order['phone_name'] = $input['phone'];
+		if (isset($input['phone_name'])) {
+			$order['phone_name'] = $input['phone_name'];
+		} else {
+			$order['phone_name'] = '0912957458';
+		}
 		if (isset($input['email'])) {
 			$order['email'] = $input['email'];
 		} else {
@@ -63,11 +73,21 @@ class OrderController extends Controller {
 		if (isset($input['city'])) {
 			$order['city'] = $input['city'];
 		} else {
-			$order['city'] = 'Hà Nội';
+			$order['city'] = 'Hà ';
 		}
 		// $order['city'] = $input['city'];
-		$order['address'] = $input['detailed'];
-		$order['comment'] = $input['remark'];
+		if (isset($input['detailed'])) {
+			$order['address'] = $input['detailed'];
+		} else {
+			$order['address'] = ' ';
+		}
+		// $order['address'] = $input['detailed'];
+		// $order['comment'] = $input['remark'];
+		if (isset($input['detailremarked'])) {
+			$order['comment'] = $input['detailed'];
+		} else {
+			$order['comment'] = ' ';
+		}
 		$order['total_price'] = $input['total_price'];
 		$orderId = Order::create($order)->id;
 		//luu vao product_order
