@@ -17,7 +17,7 @@
 <div class="timetips layui-row">
     <ul>
         <li style="text-align: center; background: #FF5722; width:100%; color: #fff; text-transform: uppercase;">
-          <a href="http://terahertz.vinstoresvn.com"> Quay lại trang chủ</a>
+          <a href="{{url('/')}}"> Quay lại trang chủ</a>
         </li>
     </ul>
 </div>
