@@ -10,7 +10,9 @@ class LandingController extends Controller {
 	public function __construct() {
 		$config = AdminConfig::find(1);
 		$discount = $config->discount_default;
+		$comments = Comment::all();
 		View::share('discount', $discount);
+		View::share('comments', $comments);
     }
 
 	public function index()
