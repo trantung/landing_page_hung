@@ -41,19 +41,7 @@
 
         <div class="form-group-p">
             <label>Kích thước</label>
-           <select id="kichthuoc">
-               <option value="6">Cỡ 6 ly</option>
-               <option value="8">Cỡ 8 ly</option>
-               <option value="10">Cỡ 10 ly</option>
-               <option value="12">Cỡ 12 ly</option>
-               <option value="14">Cỡ 14 ly</option>
-               <option value="16">Cỡ 16 ly</option>
-           </select>
             {{  Form::select('size', Size::lists('name', 'id'), array('class' => 'form-control' )) }}
-
-
-
-
              <input id="kt" type="hidden" name="kichthuoc" value="6">    <!-- lấy giá trị của kích thước,  đã viết js lấy tham số -->
         </div>
         <div class="layui-product-meta">
