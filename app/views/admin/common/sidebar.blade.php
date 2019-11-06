@@ -41,7 +41,11 @@
                     <i class="fa fa-unlock-alt"></i> <span>Kind(Hình thức)</span>
                 </a>
             </li>
-            
+            <li>
+                <a href="{{ action('AdminDiscountController@index') }}">
+                    <i class="fa fa-unlock-alt"></i> <span>Discount</span>
+                </a>
+            </li>
         </ul>
     </section>
 </aside>
