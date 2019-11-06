@@ -51,7 +51,7 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i> 
             </span>
-            <span>(872 người đã mua)</span>
+            <span>({{$config->text_promotion_number}} người đã mua)</span>
         </div>
         <div class="content-ps">
             <div class="w-6">
@@ -84,7 +84,7 @@
 
 
 <div class="count_time">
-   <span> chỉ còn 155 sản phẩm</span>
+   <span>{{$config->text_number_sale_off}}</span>
    <h3>Thời gian khuyến mại</h3>
    <div class="time_out">
         <span id="d"></span>
