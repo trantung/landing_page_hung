@@ -11,8 +11,10 @@ class LandingController extends Controller {
 		$config = AdminConfig::find(1);
 		$discount = $config->discount_default;
 		$comments = Comment::all();
+		$date_config = $config->expire_date;
 		View::share('discount', $discount);
 		View::share('comments', $comments);
+		View::share('date_config', $date_config);
     }
 
 	public function index()

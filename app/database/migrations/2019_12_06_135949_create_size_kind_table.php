@@ -20,6 +20,9 @@ class CreateSizeKindTable extends Migration {
             $table->string('price')->default(0);
             $table->timestamps();
         });
+        Schema::table('configs', function(Blueprint $table) {
+            $table->string('expire_date')->after('id')->default(1);
+        });
     }
 
     /**
