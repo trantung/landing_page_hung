@@ -16,8 +16,6 @@
                             <label>Ảnh</label>
                                 <input type="file" name="image_url" class="form-control"><br>
                                 <img src="{{ !empty($image->image_url) ? url($image->image_url) : NO_IMG }}" width="150px" height="auto"  />
-
-
                     </div> 
                     <div class="row">
                         <div class="col-sm-6">
