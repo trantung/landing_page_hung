@@ -6,7 +6,7 @@
 
   <div class="explain">
     <div class="imgbox"> <span>Đặt hàng thành công </span> </div>
-    <img src="{{url('images/hung/images/cảm-ơn-mobile.jpg')}}" alt="cảm nhận khách hàng" />
+    <img src="{{url('images/hung/images/thank-you-mobile.jpg')}}" alt="cảm nhận khách hàng" />
     <h3 class="text-center text-transform: uppercase;"> Cảm ơn bạn đã mua hàng tại shop</h3>
     <p id="order_tips">Đơn hàng của bạn đang được chúng tôi sử lý<br> Chúng tôi sẽ goi điện cho bạn khi đơn hàng được xác minh xong</p>
     <h3> CHÚC BẠN MỘT NGÀY TỐT LÀNH</h3>
