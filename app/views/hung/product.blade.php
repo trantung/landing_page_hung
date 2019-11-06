@@ -57,9 +57,9 @@
             <div class="w-6">
              
                 <div class="layui-product-num">
-                    <button type="button" class="decrease">-</button>
+                    <span class="decrease">-</span>
                     <input id = "number_default" type="text" name="number" maxlength="2" class="layui-input" value="1" readonly>
-                    <button type="button" class="increase">+</button>
+                    <span class="increase">+</span>
                 </div>
             </div> 
              <div class="mobile_hihe remove_a" >

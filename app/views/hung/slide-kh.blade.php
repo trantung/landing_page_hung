@@ -66,6 +66,9 @@ jQuery(function() {
 		left: -100%;
 		transition: all 2s ease;
 		opacity: 0;
+		position: fixed;
+		z-index: 9;
+		top: 0
 	}
 	.slider_khach_hang.active{
 		left: 0;
