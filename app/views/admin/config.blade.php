@@ -130,7 +130,19 @@
 
                     </div> {{-- End row --}}
                 </div> {{-- End box-body --}}
-
+                <div class="row">
+                    <div class='col-sm-6'>
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                {{ Form::text('expire_date', $config->expire_date, array('class' => 'form-control')) }}
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Lưu lại</button>
                 </div>
@@ -139,4 +151,9 @@
         <!-- /.box -->
     </div>
 </div>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+    });
+</script>
 @stop

@@ -16,7 +16,7 @@
         <div id="sizeselect" class="imgs">
             @foreach($products as $product)
             <div class="img" data-field="{{$product->color}}" data-price="{{$product->price}}" data-product-name="{{$product->text}}" data-product-code="{{$product->code}}" data-img="{{ $product->image_url}}" data-discount = "{{$discount}}"> 
-                <div class="layui-elip" onclick="chooseProduct( {{$product->id }})">
+                <div id="product_image_id" class="layui-elip" onclick="chooseProduct( {{$product->id }})">
                     <img src="{{ $product->image_url}}" > 
                 </div>
             </div>
@@ -28,21 +28,12 @@
         </div>
         <div class="form-group-p">
             <label>Hình Thức</label>
-           <select id="loai">
-               <option value="loai-1">hạt mài facet </option>
-               <option value="loai-2">hạt mài facet Loại 2</option>
-               <option value="loai-3">hạt mài facet Loại 3</option>
-               <option value="loai-4">hạt mài facet Loại 4</option>
-               <option value="loai-5">hạt mài facet Loại 5</option>
-               <option value="loai-6">hạt mài facet Loại 6</option>
-           </select>
-           <input id='loai-hat' type="hidden" name="loai" value="loai-1"> <!-- lấy giá trị của hình thức, đã viết js lấy tham số -->
+           {{ Form::select('kind_id', ['' => 'default']+ AdminKind::lists('name', 'id'), array('id' => 'kindChange', 'class' => 'form-control')) }}
         </div>  
 
         <div class="form-group-p">
             <label>Kích thước</label>
-            {{  Form::select('size', Size::lists('name', 'id'), array('class' => 'form-control' )) }}
-             <input id="kt" type="hidden" name="kichthuoc" value="6">    <!-- lấy giá trị của kích thước,  đã viết js lấy tham số -->
+            {{ Form::select('size_id', ['' => 'default']+Size::lists('name', 'id'), array('id' => 'sizeChange', 'class' => 'form-control')) }}
         </div>
         <div class="layui-product-meta">
             <div class="layui-product-price"> 
@@ -60,7 +51,7 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i> 
             </span>
-            <span>(872 người đã mua)</span>
+            <span>({{$config->text_promotion_number}} người đã mua)</span>
         </div>
         <div class="content-ps">
             <div class="w-6">
@@ -93,7 +84,7 @@
 
 
 <div class="count_time">
-   <span> chỉ còn 155 sản phẩm</span>
+   <span>{{$config->text_number_sale_off}}</span>
    <h3>Thời gian khuyến mại</h3>
    <div class="time_out">
         <span id="d"></span>
@@ -103,7 +94,8 @@
    </div>
     <script>
     // Set the date we're counting down to
-    var countDownDate = new Date("Jan 1, 2020 15:37:25").getTime();
+    var date_config = "<?php echo $date_config; ?>";
+    var countDownDate = new Date(date_config).getTime();
 
     // Update the count down every 1 second
     var x = setInterval(function() {
@@ -163,6 +155,21 @@
 			 $('#kt').val(kichthuoc);
 		});
 		
+    //onchange size
+    $(function(){
+       $('#sizeChange').change(function(e) {
+        //lay value cua kind_id
+        //kiem tra neu ko co thi goi ajax
+        //perform AJAX call to get list kind_id
+        // 
+       });
+    });
+
+    $(function(){
+       $('#kindChange').change(function(e) {
+        //perform AJAX call
+       });
+    });
 	});
 
 
