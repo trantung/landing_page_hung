@@ -57,7 +57,8 @@
                            // // $color = $_GET["color"];
                            // $color = 'xanh';
                            // $gia = 250000;
-                           $total_price =  $number*$product->price;
+                           $priceAfterDiscountConfig = $product->price - ($product->price * $config->discount_default/100);
+                           $total_price =  $number*$priceAfterDiscountConfig;
                            $discount_number = $discount->number;
                            if ($number >= $discount_number) {
                             $percent = $discount->percent;

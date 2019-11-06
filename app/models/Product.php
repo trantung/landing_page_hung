@@ -19,7 +19,7 @@ class Product extends Eloquent {
 	 */
 	protected $fillable = array(
 		'status', 'image_url', 'color',
-		'code','text','quantity','price'
+		'code','text','quantity','price', 'size', 'kind'
 	);
     protected $dates = ['deleted_at'];
 

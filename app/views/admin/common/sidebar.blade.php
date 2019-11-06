@@ -32,12 +32,16 @@
                 </a>
             </li>
             <li>
-                <a href="{{ action('AdminDiscountController@index') }}">
-                    <i class="fa fa-unlock-alt"></i> <span>Discount</span>
+                <a href="{{ action('SizeController@index') }}">
+                    <i class="fa fa-unlock-alt"></i> <span>Size(Kích thước)</span>
                 </a>
             </li>
-
-
+            <li>
+                <a href="{{ action('KindController@index') }}">
+                    <i class="fa fa-unlock-alt"></i> <span>Kind(Hình thức)</span>
+                </a>
+            </li>
+            
         </ul>
     </section>
 </aside>

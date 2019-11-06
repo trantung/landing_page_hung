@@ -19,16 +19,16 @@
                     </div> 
                     <div class="row">
                         <div class="col-sm-6">
-                            <label>Code</label>
-                            {{  Form::text('code', $product->code, array('class' => 'form-control' )) }}
+                            <label>Size(kích thước)</label>
+                            {{  Form::select('size', Size::lists('name', 'id'), $product->size, array('class' => 'form-control' )) }}
                         </div>
-                    </div> 
+                    </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <label>Color</label>
-                            {{  Form::text('color', $product->color, array('class' => 'form-control' )) }}
+                            <label>Kind(hình thức)</label>
+                            {{  Form::select('kind', AdminKind::lists('name', 'id'), $product->kind, array('class' => 'form-control' )) }}
                         </div>
-                    </div> 
+                    </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <label>Price</label>

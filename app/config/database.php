@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'hung',
+			'database'  => 'hung_landingpage',
 			'username'  => 'root',
 			// 'password'  => 'root',
 			'password'  => '4JAGVVLHYnKB7GtA',

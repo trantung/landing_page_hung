@@ -50,8 +50,20 @@
                                     {{  Form::text('promotion_price_header', $config->promotion_price_header, array('class' => 'form-control' )) }}
                                 </div>
                                 <div class="form-group">
-                                    <label>text header common <span class="text-warning">(*)</span></label>
+                                    <label>Discount default<span class="text-warning">(*)</span></label>
+                                    {{  Form::text('discount_default', $config->discount_default, array('class' => 'form-control' )) }}
+                                </div>
+                                <div class="form-group">
+                                    <label>text 1 <span class="text-warning">(*)</span></label>
                                     {{  Form::text('text_header_common', $config->text_header_common, array('class' => 'form-control' )) }}
+                                </div>
+                                <div class="form-group">
+                                    <label>text 2 <span class="text-warning">(*)</span></label>
+                                    {{  Form::text('text2', $config->text2, array('class' => 'form-control' )) }}
+                                </div>
+                                <div class="form-group">
+                                    <label>text 3 <span class="text-warning">(*)</span></label>
+                                    {{  Form::text('text3', $config->text3, array('class' => 'form-control' )) }}
                                 </div>
 
                                 <div class="form-group">
