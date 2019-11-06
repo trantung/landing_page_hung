@@ -18,7 +18,14 @@
                                 <img src="{{ !empty($image->image_url) ? url($image->image_url) : NO_IMG }}" width="150px" height="auto"  />
 
 
-                    </div> {{-- End row --}}
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Position</label>
+                            {{  Form::select('position', [1=>'Above', 2 =>'Below'], array('class' => 'form-control' )) }}
+                        </div>
+                    </div>
+                    {{-- End row --}}
                 </div> {{-- End box-body --}}
 
                 <div class="box-footer">

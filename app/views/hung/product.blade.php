@@ -1,7 +1,5 @@
 @include('hung.header')
 
-
-
     <div class="content-product" >
     	<!-- chen slide -->
     	@include('hung.slide-kh') 
@@ -13,18 +11,18 @@
             </div>
           
             @endif
-
+  
 
         <div id="sizeselect" class="imgs">
             @foreach($products as $product)
-            <div class="img" data-field="{{$product->color}}" data-price="{{$product->price}}" data-product-name="{{$product->text}}" data-product-code="{{$product->code}}" data-img="{{ $product->image_url}}">
+            <div class="img" data-field="{{$product->color}}" data-price="{{$product->price}}" data-product-name="{{$product->text}}" data-product-code="{{$product->code}}" data-img="{{ $product->image_url}}" data-discount = "{{$discount}}"> 
                 <div class="layui-elip" onclick="chooseProduct( {{$product->id }})">
                     <img src="{{ $product->image_url}}" > 
                 </div>
             </div>
             @endforeach
         </div>
-
+          <input type="hidden" name="discount_default" value="{{$discount}}">
         <div class="title_p">
             <h1 class="tite-p"> Vòng tay ngọc lượng tử Terahertz</h1>
         </div>
@@ -51,15 +49,19 @@
                <option value="14">Cỡ 14 ly</option>
                <option value="16">Cỡ 16 ly</option>
            </select>
+            {{  Form::select('size', Size::lists('name', 'id'), array('class' => 'form-control' )) }}
+
+
+
+
              <input id="kt" type="hidden" name="kichthuoc" value="6">    <!-- lấy giá trị của kích thước,  đã viết js lấy tham số -->
         </div>
         <div class="layui-product-meta">
             <div class="layui-product-price"> 
-                <span class="market-price"> <del id="gia_goc">{{$config->price_header}}</del> </span>
-                <span  id="pri-num" class="sale-price"> {{$productFirst->price}} VNĐ</span>
+                <span class="market-price"> <del id="pri-num">{{$productFirst->price}}</del> </span>
+                <span  id="promotion_price" class="sale-price"> {{$productFirst->price - ($productFirst->price * $config->discount_default/100) }} VNĐ</span>
                  <input type="hidden" id="price_first" name="price_first" value="{{$productFirst->price}}">
                  <input type="hidden" name="product_id_first" value="{{$productFirst->id}}">
-                 <input type="hidden" name="product_id_first" value="{{$config->price_header}}">
             </div>
         </div>
         <div  class="ranting">
@@ -201,5 +203,9 @@
             }
         });
     }
+</script>
+<script type="text/javascript">
+   var discount = "<?php echo $discount; ?>";
+    console.log(discount);
 </script>
 @include('hung.footer')

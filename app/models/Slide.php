@@ -8,7 +8,7 @@ class Slide extends Eloquent
 
     protected $table = 'slides';
     protected $fillable = [
-        'status','image_url'
+        'status','image_url', 'position'
     ];
 
     protected $dates = ['deleted_at'];

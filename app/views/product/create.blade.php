@@ -19,14 +19,14 @@
                     </div> 
                     <div class="row">
                         <div class="col-sm-6">
-                            <label>Code</label>
-                            {{  Form::text('code', '', array('class' => 'form-control' )) }}
+                            <label>Size(kích thước)</label>
+                            {{  Form::select('size', Size::lists('name', 'id'), array('class' => 'form-control' )) }}
                         </div>
                     </div> 
                     <div class="row">
                         <div class="col-sm-6">
-                            <label>Color</label>
-                            {{  Form::text('color', '', array('class' => 'form-control' )) }}
+                            <label>Kind(hình thức)</label>
+                            {{  Form::select('kind', AdminKind::lists('name', 'id'), array('class' => 'form-control' )) }}
                         </div>
                     </div> 
                     <div class="row">

@@ -13,8 +13,8 @@
         <tr>
             <th>STT</th>
             <th>Name</th>
-            <th>Code</th>
-            <th>Color</th>
+            <th>Size</th>
+            <th>Kind</th>
             <th>Price</th>
             <th>Image</th>
             <th width="145px">Thao tác</th>
@@ -26,10 +26,14 @@
                 {{ $product->text }}
             </td>
             <td>
-                {{ $product->code }}
+                @if(Size::find($product->size))
+                {{ Size::find($product->size)->name }}
+                @endif
             </td>
             <td>
-                {{ $product->color }}
+                @if(AdminKind::find($product->kind))
+                {{ AdminKind::find($product->kind)->name }}
+                @endif
             </td>
             <td>
                 {{ $product->price }}

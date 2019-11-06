@@ -10,13 +10,17 @@
 			</div>
 		</div> -->
 		 <div class="swiper-container">
-            <div class="swiper-wrapper"> 
-                <div class="item">
+            <div class="swiper-wrapper">
+            		@if($config->link_video)
                     <iframe width="100%" height="auto" src="{{ $config->link_video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="item">
-                   <iframe width="100%" height="auto" src="{{ $config->link_video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div> 
+                	@else
+                	@foreach($topSlide as $slide)
+					<div class="item">
+						<img src="{{ url($slide->image_url) }}" width="100%" height="auto" />
+	                </div>
+					@endforeach
+                	@endif
+                
             </div>
         </div>
 
@@ -32,8 +36,8 @@
 
 			<div class="layui-buys">
 				<span class="layui-right btn-100 ">{{$config->text_header_common}}</span>
-				<span class="layui-right btn-100 ">{{$config->text_header_common}}</span>
-				<span class="layui-right btn-100 ">{{$config->text_header_common}}</span>
+				<span class="layui-right btn-100 ">{{$config->text2}}</span>
+				<span class="layui-right btn-100 ">{{$config->text3}}</span>
 			</div>
 			<hr>
 		</div>
@@ -49,31 +53,13 @@
 		<div class="layui-product-info infor-bottom">
 			<h2 class="title_tesmon">Đánh giá của khách hàng</h2>
 			<div class="tesmon_items">
+				@foreach($belowSlide as $slide)
 				<div class="tesmon_item">
 					<figure>
-						<img src="config/cam-nhan-khach-hang.jpg" alt="cảm nhận khách hàng">
+						<img src="{{ url($slide->image_url) }}" alt="cảm nhận khách hàng">
 					</figure>
 				</div>
-				<div class="tesmon_item">
-					<figure>
-						<img src="config/cam-nhan-khach-hang.jpg" alt="cảm nhận khách hàng">
-					</figure>
-				</div>
-				<div class="tesmon_item">
-					<figure>
-						<img src="config/cam-nhan-khach-hang.jpg" alt="cảm nhận khách hàng">
-					</figure>
-				</div>
-				<div class="tesmon_item">
-					<figure>
-						<img src="config/cam-nhan-khach-hang.jpg" alt="cảm nhận khách hàng">
-					</figure>
-				</div>
-				<div class="tesmon_item">
-					<figure>
-						<img src="config/cam-nhan-khach-hang.jpg" alt="cảm nhận khách hàng">
-					</figure>
-				</div>
+				@endforeach
 			</div>
 		</div>
 

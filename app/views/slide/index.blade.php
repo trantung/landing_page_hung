@@ -13,6 +13,7 @@
         <tr>
             <th>STT</th>
             <th>image</th>
+            <th>Position</th>
             <th width="145px">Thao tác</th>
         </tr>
         @foreach($data as $key => $slide)
@@ -20,6 +21,9 @@
             <td>#{{ $key + 1 + ($data->getPerPage() * ($data->getCurrentPage() -1)) }}</td>
             <td>
                 <img src="{{ !empty($slide->image_url) ? url($slide->image_url) : NO_IMG }}" height="100px" width="100px"  />
+            </td>
+            <td>
+                {{ $slide->position }}
             </td>
             <td>
                 {{ Form::open(array('method'=>'DELETE', 'action' => array('SlideController@destroy', $slide->id), 'style' => 'display: inline-block;')) }}

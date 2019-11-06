@@ -7,10 +7,18 @@ class LandingController extends Controller {
 	 *
 	 * @return void
 	 */
+	public function __construct() {
+		$config = AdminConfig::find(1);
+		$discount = $config->discount_default;
+		View::share('discount', $discount);
+    }
+
 	public function index()
 	{
 		$config = AdminConfig::find(1);
 		$slides = Slide::all();
+		$topSlide = Slide::where('position', 1)->get();
+		$belowSlide = Slide::where('position', 2)->get();
 		$comments = Comment::all();
 		$commentOrders = CommentOrder::all();
 		$productFirst = null;
@@ -19,7 +27,7 @@ class LandingController extends Controller {
 		}
 		$products = Product::all();
         if ($config) {
-            return View::make('hung.index')->with(compact('config', 'slides','comments','commentOrders', 'productFirst', 'products'));
+            return View::make('hung.index')->with(compact('config', 'slides','comments','commentOrders', 'productFirst', 'products', 'topSlide', 'belowSlide'));
         }
         $config = new AdminConfig;
         return View::make('hung.index')->with(compact('config'));
@@ -33,6 +41,8 @@ class LandingController extends Controller {
 			$productFirst = Product::first();
 		}
 		$products = Product::all();
+        $discount = $config->discount_default;
+
         return View::make('hung.product')->with(compact('products', 'config', 'productFirst'));
 	}
 }
