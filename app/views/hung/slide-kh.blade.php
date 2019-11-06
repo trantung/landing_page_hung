@@ -1,50 +1,15 @@
 <div class="slider_khach_hang">
+	@foreach($comments as $slideComment)
 	<div class="item active">
 		<div class="images_kh">
-			<img src="config/TRH21.jpg">
+			<img src="{{ url($slideComment->image_url) }}" />
 		</div>
 		<div class="contebt_kh">
-			<span>Bic Thủy từ Long An vừa đặt vòng </span>
-			<i>(5 phút trước)</i>
+			<span>{{$slideComment->name}}</span>
+			<i>({{$slideComment->comment}})</i>
 		</div>
 	</div>
-	<div class="item">
-		<div class="images_kh">
-			<img src="config/TRH21.jpg">
-		</div>
-		<div class="contebt_kh">
-			<span>Anh Long từ Hà Nội vừa đặt vòng </span>
-			<i>(9 phút trước)</i>
-		</div>
-	</div>
-	<div class="item">
-		<div class="images_kh">
-			<img src="config/TRH21.jpg">
-		</div>
-		<div class="contebt_kh">
-			<span>Chị Hằng từ Nghệ An vừa đặt vòng </span>
-			<i>(6 phút trước)</i>
-		</div>
-	</div>
-	<div class="item">
-		<div class="images_kh">
-			<img src="config/TRH21.jpg">
-		</div>
-		<div class="contebt_kh">
-			<span>CHị Hiền từ Hà Nội vừa đặt vòng </span>
-			<i>(9 phút trước)</i>
-		</div>
-	</div>
-	<div class="item">
-		<div class="images_kh">
-			<img src="config/TRH21.jpg">
-		</div>
-		<div class="contebt_kh">
-			<span>Chị Thắm từ Bình Phước vừa đặt vòng </span>
-			<i>(10 phút trước)</i>
-		</div>
-	</div>
-	
+	@endforeach
 </div>
 <script>
 jQuery(function() {
