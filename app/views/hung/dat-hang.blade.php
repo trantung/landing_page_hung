@@ -58,6 +58,7 @@
                            // $color = 'xanh';
                            // $gia = 250000;
                            $priceAfterDiscountConfig = $product->price;
+                           $total_price =  $number*$priceAfterDiscountConfig;
                            $discount_number = $discount->number;
                            if ($number >= $discount_number) {
                             $percent = $discount->percent;
