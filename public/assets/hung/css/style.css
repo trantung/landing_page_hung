@@ -1005,7 +1005,7 @@ a, article, div, h1, h2, h3, h4, h5, h6, img, section, span {
     -webkit-user-select: none; 
 }
 input, select, textarea { 
-    -webkit-appearance: none; 
+    /*-webkit-appearance: none; */
     -webkit-border-radius:0; 
     border-radius: 0; 
 }
