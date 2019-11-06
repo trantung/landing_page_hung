@@ -46,8 +46,8 @@
         </div>
         <div class="layui-product-meta">
             <div class="layui-product-price"> 
-                <span class="market-price"> <del id="pri-num">{{$productFirst->price}}</del> </span>
-                <span  id="promotion_price" class="sale-price"> {{$productFirst->price - ($productFirst->price * $config->discount_default/100) }} VNĐ</span>
+                <span class="market-price"> <del id="pri-num">{{$productFirst->price + $productFirst->price * $discount/100 }}</del> </span>
+                <span  id="promotion_price" class="sale-price"> {{$productFirst->price}}VNĐ</span>
                  <input type="hidden" id="price_first" name="price_first" value="{{$productFirst->price}}">
                  <input type="hidden" name="product_id_first" value="{{$productFirst->id}}">
             </div>
