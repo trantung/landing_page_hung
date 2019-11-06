@@ -807,10 +807,12 @@ ul.pay_list {
     min-width: 215px;
     border: 1px solid#ccc;
     border-radius: 5px;
+    font-size: 16px;
 }
 .form-group-p label {
-    width: 70px;
+    width: 81px;
     margin-right: 5px;
+    font-size: 16px;
 }
 .content-ps {
     display: flex;
