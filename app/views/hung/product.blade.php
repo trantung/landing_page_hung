@@ -28,12 +28,12 @@
         </div>
         <div class="form-group-p">
             <label>Hình Thức</label>
-           {{ Form::select('kind_id', ['' => 'default']+Size::lists('name', 'id'), array('id' => 'kindChange', 'class' => 'form-control'); }}
+           {{ Form::select('kind_id', ['' => 'default'] + Size::lists('name', 'id'), array('id' => 'kindChange', 'class' => 'form-control') }}
         </div>  
 
         <div class="form-group-p">
             <label>Kích thước</label>
-            {{ Form::select('size_id', ['' => 'default']+Size::lists('name', 'id'), array('id' => 'sizeChange', 'class' => 'form-control'); }}
+            {{ Form::select('size_id', ['' => 'default']+Size::lists('name', 'id'), array('id' => 'sizeChange', 'class' => 'form-control') }}
         </div>
         <div class="layui-product-meta">
             <div class="layui-product-price"> 
