@@ -182,8 +182,9 @@ $(document).ready(function () {
                 }else{
                     fnum = Math.abs(parseInt(fnum)) + 1;
                     if (typeof $('input[name=price]').val() === "undefined") {
+                        var promotion_price = $('#price_first').val();
                         var price = $('#price_first').val();
-                        var promotion_price = price - price * discount/100;
+                        var price = price - price * discount/100;
                     } else{
                         var price = $('#price').val();
                         var promotion_price = price - price * discount/100;

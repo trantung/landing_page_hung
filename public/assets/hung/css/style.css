@@ -555,7 +555,7 @@ body.buy-active .hbg {
     justify-content: space-between;
 }
 .cartItems .item-info .title {
-    font-size: 21px;
+    font-size: 18px;
     color: #000;
     display: -webkit-box;
     overflow: hidden;
@@ -806,7 +806,7 @@ ul.pay_list {
     padding: 10px;
     min-width: 215px;
     border: 1px solid#ccc;
-    border-radius: 5px;
+    /*border-radius: 5px;*/
     font-size: 16px;
 }
 .form-group-p label {
