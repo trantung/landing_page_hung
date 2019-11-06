@@ -134,7 +134,7 @@
                     <div class='col-sm-6'>
                         <div class="form-group">
                             <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' name="expire_date" class="form-control" />
+                                {{ Form::text('expire_date', $config->expire_date, array('class' => 'form-control')) }}
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
