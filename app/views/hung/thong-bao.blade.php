@@ -5,18 +5,20 @@
 <div class="layui-container">
 
   <div class="explain">
-    <div class="imgbox"> <span>Đặt đơn hàng thành công </span> </div>
-    <h3 class="text-center"> Cảm ơn bạn đã mua hàng tại shop</h3>
-    <img src="config/cảm-ơn-mobile.jpg" alt="cảm nhận khách hàng">" />
+    <div class="imgbox"> <span>Đặt hàng thành công </span> </div>
+    <img src="{{url('images/hung/images/cảm-ơn-mobile.jpg')}}" alt="cảm nhận khách hàng" />
+    <h3 class="text-center text-transform: uppercase;"> Cảm ơn bạn đã mua hàng tại shop</h3>
     <p id="order_tips">Đơn hàng của bạn đang được chúng tôi sử lý<br> Chúng tôi sẽ goi điện cho bạn khi đơn hàng được xác minh xong</p>
-    <h3> Chúc một ngày thành công</h3>
+    <h3> CHÚC BẠN MỘT NGÀY TỐT LÀNH</h3>
   </div>
 
 </div>
 
 <div class="timetips layui-row">
     <ul>
-        <li style="text-align: center; width:100%; color: #000000">{{$config->text_footer_order}}</li>
+        <li style="text-align: center; background: #FF5722; width:100%; color: #fff; text-transform: uppercase;">
+          <a href="http://terahertz.vinstoresvn.com"> {{$config->text_footer_order}}</a>
+        </li>
     </ul>
 </div>
 <script type="text/javascript">

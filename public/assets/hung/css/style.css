@@ -1,21 +1,21 @@
 *{
-	margin: 0;
-	padding:0;
+    margin: 0;
+    padding:0;
 }
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=vietnamese');
 img{
-	max-width: 100%;
-	height: auto;
+    max-width: 100%;
+    height: auto;
 }
 body{
-	font-family: 'Roboto', arial, sans-serif;
-	background: #F0F0F0;
+    font-family: 'Roboto', arial, sans-serif;
+    background: #F0F0F0;
     font-size: 14px;
 }
 .container_main{
-	max-width: 640px;
-	margin: auto;
-	
+    max-width: 640px;
+    margin: auto;
+    
 }
 iframe {
     height: 360px;
@@ -36,7 +36,7 @@ ul{list-style: none;}
     height: 0;
 }
  .swiper-wrapper .owl-prev, .swiper-wrapper .owl-next {
-	display: inline-block;
+    display: inline-block;
     width: 32px;
     height: 32px;
     text-align: center;
@@ -62,16 +62,16 @@ ul{list-style: none;}
     font-size: 12px;
 }
  .swiper-wrapper .owl-dot:last-child:before{
-	content: "/";
-	position: absolute;
-	left: -2px;
+    content: "/";
+    position: absolute;
+    left: -2px;
 }
 .swiper-wrapper .owl-prev{
 margin-left: 10px;
 }
 .swiper-wrapper .owl-next{
-	float: right;
-	margin-right: 10px;
+    float: right;
+    margin-right: 10px;
 }
 .swiper-wrapper .owl-nav .disabled{
     background: #ddd;
@@ -131,12 +131,12 @@ margin-left: 10px;
     overflow: hidden;
 }
 .layui-product-meta .sale-price {
-    font-size: 28px;
+    font-size: 27px;
     color:  #E6AE49;
    
 }
 .layui-product-meta .layui-product-price {
-    font-size: 28px;
+    font-size: 27px;
     line-height: 35px;
     text-align: center;
     margin-bottom: 10px;
@@ -230,8 +230,8 @@ hr {
 .layui-product-size-title {
     line-height: 35px;
     display: inline-block;
-	width: 100%;
-	font-size: 16px;
+    width: 100%;
+    font-size: 16px;
 }
 /*phần cuối trang*/
 .layui-row::after, .layui-row::before {
@@ -247,7 +247,7 @@ hr {
 table {
     border-collapse: collapse;
     border-spacing: 0;
-	border: 1px solid #ccc;
+    border: 1px solid #ccc;
 
 }
 .layui-table td, .layui-table th, .layui-table-header, .layui-table-tool, .layui-table-view, .layui-table[lay-skin="row"], .layui-table[lay-skin="line"] {
@@ -630,7 +630,7 @@ textarea.layui-textarea {
 #toTop { 
     background-size: 100%;
     display: flex;
-    background:url("/../../images/hung/images/Back-To-Top1.png");
+    background:url("/../../images/hung/images/Back-to-top.png");
     bottom: 60px;
     color: #333;
     cursor: pointer;
@@ -652,18 +652,20 @@ textarea.layui-textarea {
 /*trang thông báo*/
 .imgbox {
     text-align: center;
-    margin-bottom: 38px;
-    padding-top: 15px;
+    padding-bottom: 38px;
+    padding-top: 30px;
+    background: #F8F8F8;
+    text-transform: uppercase;
+    /* font-size: 33px; */
 }
 .imgbox img {
     width: 56px;
     vertical-align: middle;
 }
 .imgbox span {
-    font-size: 18px;
+    font-size: 25px;
     line-height: 18px;
-    color: #212121;
-    margin-left: 26px;
+    color: #000;
 }
 ul.pay_list {
     text-align: center;
@@ -700,7 +702,6 @@ ul.pay_list {
     color: #666;
     margin-top: 8px;
     line-height: 20px;
-    word-break: break-all;
     padding: 0 15px;
 }
 #sbm {
@@ -804,6 +805,8 @@ ul.pay_list {
 .form-group-p select {
     padding: 10px;
     min-width: 215px;
+    border: 1px solid#ccc;
+    border-radius: 5px;
 }
 .form-group-p label {
     width: 70px;
@@ -816,14 +819,21 @@ ul.pay_list {
     width: 50px;
     text-align: center;
     font-size: 15px;
+    border: 1px solid #ccc;
 }
 .layui-product-num {
     display: flex;
 }
-.decrease , .increase{
+.decrease, .increase {
     font-size: 24px;
     width: 40px;
     height: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ccc;
+    border-radius: 3px;
 }
 .mobile_hihe.remove_a {
     width: 100%;
@@ -973,20 +983,50 @@ ul.pay_list {
     #fff;
 }
 
+/* css mói*/
+.explain {
+    text-align: center;
+}
 
 
+.explain h3 {
+    padding: 20px 0;
+    text-transform: uppercase;
+}
+.timetips ul li a {
+    color: #fff; 
+}
 
+* { 
+    -webkit-tap-highlight-color: transparent; 
+}
+a, article, div, h1, h2, h3, h4, h5, h6, img, section, span {
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+}
+input, select, textarea { 
+    -webkit-appearance: none; 
+    -webkit-border-radius:0; 
+    border-radius: 0; 
+}
 
+.imgbox {
 
+    margin-bottom: 30px;
+
+}
+.timetips.layui-row ul li{
+   padding: 5px 0
+}
 
 
 
 
 
 @media screen and (max-width: 768px) {
-	.container_main{
-		max-width: 768px;
-	}
+    .container_main{
+        max-width: 768px;
+    }
 
     .layui-footer{
         max-width: 100%;
@@ -1018,18 +1058,3 @@ ul.pay_list {
             height: 180px;
         }
     }
-
-
-textarea,
-
-input[type="text"],
-
-input[type="button"],
-
-input[type="submit"] {
-
-     -webkit-appearance: none;
-
-     border-radius: 0;
-
-}
