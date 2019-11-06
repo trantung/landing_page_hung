@@ -1,5 +1,8 @@
 
 $(document).ready(function () {
+   var discount = "<?php echo $discount; ?>";
+    console.log(discount);
+
     owlBanner();
     owlCamNhaKhachHang();
     owlProduct();
@@ -108,14 +111,18 @@ $(document).ready(function () {
         $('.layui-product-buy').addClass('layui-hide');
         $('#apprDialog').addClass('layui-hide');
     });
+    
 
     var fnum = $('input[name="number"]').val();
+    var discount = $('input[name="discount_default"]').val();
     $(".img").each(function(data){
                 $(this).bind("click",function (){
                     $(this).addClass('active').siblings().removeClass("active");
                     var id=$(this).attr('data-field');
                     var tprice=$(this).attr('data-price');
-
+                    // var discount=$(this).attr('data-discount');
+                    // var discount = "<?php echo $discount; ?>";
+                    // console.log(discount);
                     var tname_product=$(this).attr('data-product-name');
                     var tcode_product=$(this).attr('data-product-code');
 
@@ -131,8 +138,11 @@ $(document).ready(function () {
                     $('#product_color').html(tcode_product);
                     // $('#pri-num span').html(Math.abs(parseInt(tprice))*fnum);  
                     // console.log(html_price); 
+                    var promotion_price = tprice - tprice * discount/100;
                     var html_price = '<span>' + Math.abs(parseInt(tprice))*fnum + '</span>VNĐ';
-                    $('#pri-num').html(html_price);                
+                    var html_price_promotion = '<span>' + Math.abs(parseInt(promotion_price))*fnum + '</span>VNĐ';
+                    $('#pri-num').html(html_price);
+                    $('#promotion_price').html(html_price_promotion);
                 })
             });
             $("#size2select > div").each(function(data){
@@ -150,13 +160,17 @@ $(document).ready(function () {
                     // price = $('input[name=price]').val();
                     if (typeof $('input[name=price]').val() === "undefined") {
                         var price = $('#price_first').val();
+                        var promotion_price = price - price * discount/100;
                     } else{
                         var price = $('#price').val();
+                        var promotion_price = price - price * discount/100;
                     }
                     $('input[name="number"]').val(fnum);
                     // $('#pri-num span').html(Math.abs(parseInt(price))*fnum);
                     var html_price = '<span>' + Math.abs(parseInt(price))*fnum + '</span>VNĐ';
+                    var html_price_promotion = '<span>' + Math.abs(parseInt(promotion_price))*fnum + '</span>VNĐ';
                     $('#pri-num').html(html_price);
+                    $('#promotion_price').html(html_price_promotion);
                                     
                 }
             });
@@ -167,16 +181,22 @@ $(document).ready(function () {
                     fnum = Math.abs(parseInt(fnum)) + 1;
                     if (typeof $('input[name=price]').val() === "undefined") {
                         var price = $('#price_first').val();
+                        var promotion_price = price - price * discount/100;
                     } else{
                         var price = $('#price').val();
+                        var promotion_price = price - price * discount/100;
                     }
                     // price = $(this).attr('data-price');
                     console.log(price);
                     $('input[name="number"]').val(fnum);
                     // $('#pri-num span').html(Math.abs(parseInt(price))*fnum);
                     var tong = Math.abs(parseInt(price))*fnum;
+                    var tong_promotion = Math.abs(parseInt(promotion_price))*fnum;
                     var html_price = '<span>' + tong + '</span>VNĐ';
-                    $('#pri-num').html(html_price);             
+                    var html_price_promotion = '<span>' + tong_promotion + '</span>VNĐ';
+                    $('#pri-num').html(html_price);
+                    $('#promotion_price').html(html_price_promotion);
+
                 }
             });
 
