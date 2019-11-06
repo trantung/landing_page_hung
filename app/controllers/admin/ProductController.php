@@ -37,7 +37,13 @@ class ProductController extends AdminController {
     {
         $input = Input::all();
         $input['image_url'] = CommonUpload::uploadImage(UPLOADPRODUCT, 'image_url');
-        Product::create($input);
+        $productId = Product::create($input)->id;
+        SizeKind::create([
+            'product_id' => $productId,
+            'size_id' => $input['size'],
+            'kind_id' => $input['kind'],
+            'price' => $input['price'],
+        ]);
         return Redirect::action('ProductController@index');
 
     }
