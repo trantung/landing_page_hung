@@ -139,7 +139,7 @@ $(document).ready(function () {
                     // $('#pri-num span').html(Math.abs(parseInt(tprice))*fnum);  
                     // console.log(html_price); 
                     var promotion_price = tprice;
-                    var wrong_price = tprice + tprice * discount/100;
+                    var wrong_price = Math.abs(parseInt(tprice)) + Math.abs(parseInt(tprice))*discount/100;
                     console.log(wrong_price);
                     var html_price = '<span>' + Math.abs(parseInt(wrong_price))*fnum + '</span>VNĐ';
                     var html_price_promotion = '<span>' + Math.abs(parseInt(promotion_price))*fnum + '</span>VNĐ';
