@@ -1,12 +1,9 @@
 
 $(document).ready(function () {
-   var discount = "<?php echo $discount; ?>";
-    console.log(discount);
-
     owlBanner();
     owlCamNhaKhachHang();
-    owlProduct();
-     owlProductThumb();
+    owlProduct();    
+    owlProductThumb();
 
     function owlBanner() {
         if ($('.swiper-wrapper .item').length > 0) {
@@ -162,14 +159,19 @@ $(document).ready(function () {
                     // price = $('input[name=price]').val();
                     if (typeof $('input[name=price]').val() === "undefined") {
                         var price = $('#price_first').val();
-                        var promotion_price = price - price * discount/100;
+                        var promotion_price = price;
+
+                        // var promotion_price = price - price * discount/100;
+                        var wrong_price = Math.abs(parseInt(price)) + Math.abs(parseInt(price))*discount/100;
                     } else{
                         var price = $('#price').val();
-                        var promotion_price = price - price * discount/100;
+                        var promotion_price = price;
+                        // var promotion_price = price - price * discount/100;
+                        var wrong_price = Math.abs(parseInt(price)) + Math.abs(parseInt(price))*discount/100;
+
                     }
                     $('input[name="number"]').val(fnum);
-                    // $('#pri-num span').html(Math.abs(parseInt(price))*fnum);
-                    var html_price = '<span>' + Math.abs(parseInt(price))*fnum + '</span>VNĐ';
+                    var html_price = '<span>' + Math.abs(parseInt(wrong_price))*fnum + '</span>VNĐ';
                     var html_price_promotion = '<span>' + Math.abs(parseInt(promotion_price))*fnum + '</span>VNĐ';
                     $('#pri-num').html(html_price);
                     $('#promotion_price').html(html_price_promotion);
@@ -182,21 +184,19 @@ $(document).ready(function () {
                 }else{
                     fnum = Math.abs(parseInt(fnum)) + 1;
                     if (typeof $('input[name=price]').val() === "undefined") {
-                        var promotion_price = $('#price_first').val();
                         var price = $('#price_first').val();
-                        var price = price - price * discount/100;
+                        var promotion_price = price;
+                        var wrong_price = Math.abs(parseInt(price)) + Math.abs(parseInt(price))*discount/100;
                     } else{
                         var price = $('#price').val();
-                        var promotion_price = price - price * discount/100;
+                        var promotion_price = price;
+                        var wrong_price = Math.abs(parseInt(price)) + Math.abs(parseInt(price))*discount/100;
                     }
                     // price = $(this).attr('data-price');
                     console.log(price);
                     $('input[name="number"]').val(fnum);
-                    // $('#pri-num span').html(Math.abs(parseInt(price))*fnum);
-                    var tong = Math.abs(parseInt(price))*fnum;
-                    var tong_promotion = Math.abs(parseInt(promotion_price))*fnum;
-                    var html_price = '<span>' + tong + '</span>VNĐ';
-                    var html_price_promotion = '<span>' + tong_promotion + '</span>VNĐ';
+                    var html_price = '<span>' + Math.abs(parseInt(wrong_price))*fnum + '</span>VNĐ';
+                    var html_price_promotion = '<span>' + Math.abs(parseInt(promotion_price))*fnum + '</span>VNĐ';
                     $('#pri-num').html(html_price);
                     $('#promotion_price').html(html_price_promotion);
 
@@ -218,43 +218,42 @@ $(document).ready(function () {
 
 
 // validate form
-        $("#button").click(function(){
-          var name = $('input[name=fullname]').val();
-          var mobile = $('input[name=phone]').val();
-          var detailed = $('input[name=detailed]').val();
-          if (name == "") {
-            alert('Vui lòng điền họ tên');
-            $('input[name=name]').focus();
-            return false
-          }
-          if (mobile == "") {
-            alert('Vui lòng điền số điện thoại');
-            $('input[name=mobile]').focus();
-            return false
-          }
-          if (detailed == "") {
-            alert('Vui lòng điền địa chỉ cụ thể');
-            $('input[name=detailed]').focus();
-            return false
-          }
-          $('form').submit();
+    $("#button").click(function(){
+      var name = $('input[name=fullname]').val();
+      var mobile = $('input[name=phone]').val();
+      var detailed = $('input[name=detailed]').val();
+      if (name == "") {
+        alert('Vui lòng điền họ tên');
+        $('input[name=name]').focus();
+        return false
+      }
+      if (mobile == "") {
+        alert('Vui lòng điền số điện thoại');
+        $('input[name=mobile]').focus();
+        return false
+      }
+      if (detailed == "") {
+        alert('Vui lòng điền địa chỉ cụ thể');
+        $('input[name=detailed]').focus();
+        return false
+      }
+      $('form').submit();
 
+    });
+    
+    $("#province").hide();
+    // nut tôtpop
+     $(function() {
+        $(window).scroll(function() {
+            if($(this).scrollTop() != 0) {
+                $('#toTop').fadeIn();  
+            } else {
+                $('#toTop').fadeOut();
+            }
         });
-        
-        $("#province").hide();
-        // nut tôtpop
-         $(function() {
-            $(window).scroll(function() {
-                if($(this).scrollTop() != 0) {
-                    $('#toTop').fadeIn();  
-                } else {
-                    $('#toTop').fadeOut();
-                }
-            });
-       
-            $('#toTop').click(function() {
-                $('body,html').animate({scrollTop:0},800);
-            });  
-        });
-
+   
+        $('#toTop').click(function() {
+            $('body,html').animate({scrollTop:0},800);
+        });  
+    });
 });
