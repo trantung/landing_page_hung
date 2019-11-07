@@ -37,7 +37,10 @@ class SlideController extends AdminController {
     {
         $input = Input::all();
         $input['image_url'] = CommonUpload::uploadImage(UPLOADSLIDE, 'image_url');
-        Slide::create(['image_url'=>$input['image_url']]);
+        Slide::create([
+            'image_url'=>$input['image_url'], 
+            'position' => $input['position']
+        ]);
         return Redirect::action('SlideController@index');
 
     }
