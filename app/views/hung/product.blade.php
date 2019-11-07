@@ -6,10 +6,9 @@
 
        {{ Form::open(array('action' => array('OrderController@store'), 'method' => "POST", 'class' => 'layui-form')) }}
             @if($productFirst)
-            <div class="image-p"> 
+            <div id="image_top" class="image-p"> 
                 <img src="{{ $productFirst->image_url}}" id="sizeimg"/>
             </div>
-          
             @endif
   
 
@@ -28,12 +27,22 @@
         </div>
         <div class="form-group-p">
             <label>Hình Thức</label>
-           {{ Form::select('kind_id', ['' => 'default']+ AdminKind::lists('name', 'id'), array('id' => 'kindChange', 'class' => 'form-control')) }}
+           <select class="form-control" id="kind" name="kind_id" onchange="return changeKind();">
+              <option value=""> Default </option>
+              @foreach(AdminKind::lists('name', 'id') as $key => $value)
+                <option value="{{$key}}"> {{$value}} </option>
+              @endforeach 
+           </select>
         </div>  
 
         <div class="form-group-p">
             <label>Kích thước</label>
-            {{ Form::select('size_id', ['' => 'default']+Size::lists('name', 'id'), array('id' => 'sizeChange', 'class' => 'form-control')) }}
+            <select class="form-control" id="size" name="size_id" onchange="return changeSize();">
+              <option value=""> Default </option>
+              @foreach(Size::lists('name', 'id') as $key => $value)
+                <option value="{{$key}}"> {{$value}} </option>
+              @endforeach 
+           </select>
         </div>
         <div class="layui-product-meta">
             <div class="layui-product-price"> 
@@ -92,87 +101,10 @@
         <span id="m"></span>
         <span id="s"></span>
    </div>
-    <script>
-    // Set the date we're counting down to
-    var date_config = "<?php echo $date_config; ?>";
-    var countDownDate = new Date(date_config).getTime();
-
-    // Update the count down every 1 second
-    var x = setInterval(function() {
-
-      // Get today's date and time
-      var now = new Date().getTime();
-
-      // Find the distance between now and the count down date
-      var distance = countDownDate - now;
-
-      // Time calculations for days, hours, minutes and seconds
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      // Display the result in the element with id="demo"
-      document.getElementById("d").innerHTML = days + " </br>DAYS "; 
-      document.getElementById("t").innerHTML = hours + "</br>HOUR"; 
-      document.getElementById("m").innerHTML = minutes + "</br>MINS"; 
-      document.getElementById("s").innerHTML = seconds + "</br>SECS"; 
-
-
-
-
-
-      + hours + "h "
-      + minutes + "m " + seconds + "s ";
-
-      // If the count down is finished, write some text
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "EXPIRED";
-      }
-    }, 1000);
-    </script>
-
-
-
 </div>
-
-
 <div class="hbg"></div>
 
 <script type="text/javascript">
-	jQuery(document).ready(function($) {
-
-		//  lấy giá trị select loại hat
-		$('#loai').change(function(event) {
-			 var loai = $(this).val();
-			 $('#loai-hat').val(loai);
-		});
-
-		//  lấy giá trị select kích thước
-		$('#kichthuoc').change(function(event) {
-			 var kichthuoc = $(this).val();
-			 $('#kt').val(kichthuoc);
-		});
-		
-    //onchange size
-    $(function(){
-       $('#sizeChange').change(function(e) {
-        //lay value cua kind_id
-        //kiem tra neu ko co thi goi ajax
-        //perform AJAX call to get list kind_id
-        // 
-       });
-    });
-
-    $(function(){
-       $('#kindChange').change(function(e) {
-        //perform AJAX call
-       });
-    });
-	});
-
-
     function chooseProduct(product_id)
     {
         $.ajax({
@@ -199,8 +131,5 @@
         });
     }
 </script>
-<script type="text/javascript">
-   var discount = "<?php echo $discount; ?>";
-    console.log(discount);
-</script>
+@include('hung.script')
 @include('hung.footer')
