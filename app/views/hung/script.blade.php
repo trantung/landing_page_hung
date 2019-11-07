@@ -1,7 +1,8 @@
 <script>
 // Set the date we're counting down to
 var date_config = "<?php echo $date_config; ?>";
-var countDownDate = new Date(date_config).getTime();
+// var countDownDate = new Date(date_config).getTime();
+var countDownDate = new Date(date_config.replace(/\s/, 'T')+'Z').getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -80,7 +81,7 @@ var x = setInterval(function() {
                     success: function (data) {
                         console.log(data);
                         var price_del = data['price_del'];
-                        var price = data['price'];
+                        var price = data['price'] + ' VNĐ';
                         $('#pri-num').html(price_del);
                         $('#promotion_price').html(price);
 
