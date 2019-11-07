@@ -1,4 +1,16 @@
 <?php
+Route::get('/size_kind', function(){
+    $list = Product::all();
+    foreach ($list as $key => $value) {
+        SizeKind::create([
+            'kind_id'=>$value->kind,
+            'size_id'=>$value->size,
+            'product_id'=>$value->id,
+            'price'=>$value->price,
+        ]);
+    }
+    dd(111);
+});
 Route::get('/', 'LandingController@index');
 Route::get('/mua-san-pham', 'LandingController@getBuy');
 
@@ -37,6 +49,9 @@ Route::group(array('prefix' => $locale), function() {
     
 });
 Route::post('/ajax/product', 'AjaxController@ajaxProduct');
+Route::post('/ajax/kind', 'AjaxController@ajaxKind');
+Route::post('/ajax/size', 'AjaxController@ajaxSize');
+Route::post('/ajax/get_product_by_kind_size', 'AjaxController@ajaxProductByKindSize');
 Route::controller('/ajax', 'AjaxController');
 Route::controller('/test', 'TestController');
 
