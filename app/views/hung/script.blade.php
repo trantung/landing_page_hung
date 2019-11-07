@@ -143,7 +143,7 @@ var x = setInterval(function() {
                     },
                     success: function (data) {
                         var price_del = data['price_del'];
-                        var price = data['price'];
+                        var price = data['price'] + ' VNĐ';
                         $('#pri-num').html(price_del);
                         $('#promotion_price').html(price);
 
