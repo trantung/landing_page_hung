@@ -232,4 +232,58 @@ class AjaxController extends \BaseController {
         ];
         return Response::json($output);
     }
+    public function ajaxKind()
+    {
+        $input = Input::all();
+        $kindId = $input['kind_id'];
+        if ($kindId == '') {
+            $result = Size::lists('name', 'id');
+            return Response::json($result);
+        }
+
+        $listSize = SizeKind::where('kind_id', $kindId)
+            ->lists('size_id');
+        $result = Size::whereIn('id', $listSize)->lists('name', 'id');
+        return Response::json($result);
+    }
+    public function ajaxSize()
+    {
+        $input = Input::all();
+        $sizeId = $input['size_id'];
+        if ($sizeId == '') {
+            $result = AdminKind::lists('name', 'id');
+            return Response::json($result);
+        }
+        $listKind = SizeKind::where('size_id', $sizeId)
+            ->lists('kind_id');
+        $result = AdminKind::whereIn('id', $listKind)->lists('name', 'id');
+        return Response::json($result);
+    }
+    public function ajaxProductByKindSize()
+    {
+        $input = Input::all();
+        $sizeId = $input['size_id'];
+        $kindId = $input['kind_id'];
+        $kindSize = SizeKind::where('size_id', $sizeId)->where('kind_id', $kindId)
+            ->first();
+        $result['product_id'] = $kindSize->product_id; 
+        $result['price'] = $kindSize->price;
+        $result['price_del'] = $this->getPriceDel($kindSize->price);
+        $result['image_url'] = $this->getImageUrlProduct($kindSize->product_id);
+        return Response::json($result);
+    }
+    
+    public function getImageUrlProduct($productId)
+    {
+        $product = Product::find($productId);
+        $url = url($product->image_url);
+        return $url;
+    }
+    public function getPriceDel($price)
+    {
+        $config = AdminConfig::find(1);
+        $discount = $config->discount_default   ;
+        $result = $price + $price * $discount/100;
+        return $result;
+    }
 }

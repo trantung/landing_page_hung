@@ -36,7 +36,7 @@ class SizeController extends AdminController {
     public function store()
     {
         $input = Input::all();
-        $input['image_url'] = CommonUpload::uploadImage(UPLOADPRODUCT, 'image_url');
+        $input['image_url'] = CommonUpload::uploadImage(UPLOADPRODUCT.'/size/', 'image_url');
         Size::create($input);
         return Redirect::action('SizeController@index');
 
@@ -64,7 +64,7 @@ class SizeController extends AdminController {
     public function edit($id)
     {
         $size = Size::find($id);
-        return View::make('size.edit')->with(compact('product'));
+        return View::make('size.edit')->with(compact('size'));
     }
 
 

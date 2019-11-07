@@ -87,6 +87,12 @@ class ProductController extends AdminController {
         $product = Product::find($id);
         $input['image_url'] = CommonUpload::uploadImage(UPLOADPRODUCT, 'image_url', $product->image_url);
         $product->update($input);
+        $sizeKind = SizeKind::where('product_id', $id)->update([
+            'product_id' => $id,
+            'size_id' => $input['size'],
+            'kind_id' => $input['kind'],
+            'price' => $input['price'],
+        ]);
         return Redirect::action('ProductController@index');
     }
 
