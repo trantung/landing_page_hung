@@ -12,6 +12,11 @@ class LandingController extends Controller {
 		$discount = $config->discount_default;
 		$comments = Comment::all();
 		$date_config = $config->expire_date;
+// 
+		// $yrdata= strtotime($date_config);
+		// $date_config = date($date_config.replace(/\s/, 'T'));
+    	// dd($date_config);
+
 		View::share('discount', $discount);
 		View::share('comments', $comments);
 		View::share('date_config', $date_config);
