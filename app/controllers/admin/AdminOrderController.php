@@ -38,7 +38,7 @@ class AdminOrderController extends AdminController {
         if (!$sizeId && !$kindId) {
             return Redirect::action('AdminOrderController@index');
         }
-        $sizeKind = SizeKind::whereNotNull('created');
+        $sizeKind = SizeKind::whereNotNull('created_at');
         if ($sizeId) {
             $sizeKind = $sizeKind->where('size_id', $sizeId);
         }
