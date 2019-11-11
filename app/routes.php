@@ -42,6 +42,7 @@ Route::group(array('prefix' => $locale), function() {
         Route::resource('/product', 'ProductController');
         Route::resource('/size', 'SizeController');
         Route::resource('/kind', 'KindController');
+        Route::get('/order/search', 'AdminOrderController@search');
         Route::resource('/order', 'AdminOrderController');
         Route::resource('/discount', 'AdminDiscountController');
 
