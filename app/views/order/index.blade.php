@@ -9,8 +9,8 @@
     @include('order.filter')
 </div>
 	<div class="scrollme">        
-<table class="table table-responsive table-striped table-bordered table-sm" cellspacing="0"
-  width="100%">
+<table class="table table-bordered table-responsive table-striped table-bordered table-sm" cellspacing="0"
+  width="100%" style="border:10px solid #ddd !important;">
         <thead>
 	<tr>
             <th>STT</th>
@@ -32,7 +32,7 @@
         <tr>
             <td>#{{ $key + 1 + ($data->getPerPage() * ($data->getCurrentPage() -1)) }}</td>
             <td>
-                {{ ProductOrder::getNameProductByOrder($order->id) }}
+                {{wordwrap(ProductOrder::getNameProductByOrder($order->id), 30, "<br>\n") }}
             </td>
             <!-- <td>
                 {{ Order::getValueByOrderId($order->id,'total_price') }}
@@ -56,7 +56,7 @@
                 {{ Order::getValueByOrderId($order->id,'phone_name') }}
             </td>
             <td>
-                {{ nl2br(Order::getValueByOrderId($order->id,'address')) }}
+                {{ wordwrap(Order::getValueByOrderId($order->id,'address'), 30, "<br>\n") }}
             </td>
             <td>
                 {{ Order::getValueByOrderId($order->id,'comment') }}
