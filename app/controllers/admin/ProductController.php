@@ -106,7 +106,7 @@ class ProductController extends AdminController {
      */
     public function destroy($id)
     {
-        //
+        SizeKind::where('product_id', $id)->delete();
         $image = Product::destroy($id);
         return Redirect::action('ProductController@index')->withMessage('<i class="fa fa-check-square-o fa-lg"></i> Xóa thành công!');
 

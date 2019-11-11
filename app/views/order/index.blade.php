@@ -5,6 +5,9 @@
 @stop
 @section('content')
 @include('order.index_script')
+<div class="margin-bottom">
+    @include('order.filter')
+</div>
 	<div class="scrollme">        
 <table class="table table-responsive table-striped table-bordered table-sm" cellspacing="0"
   width="100%">
