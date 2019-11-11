@@ -119,7 +119,6 @@ $(document).ready(function () {
                     var tprice=$(this).attr('data-price');
                     // var discount=$(this).attr('data-discount');
                     // var discount = "<?php echo $discount; ?>";
-                    // console.log(discount);
                     var tname_product=$(this).attr('data-product-name');
                     var tcode_product=$(this).attr('data-product-code');
 
@@ -134,16 +133,14 @@ $(document).ready(function () {
                     $('#product_name').html(tname_product);
                     $('#product_color').html(tcode_product);
                     // $('#pri-num span').html(Math.abs(parseInt(tprice))*fnum);  
-                    // console.log(html_price); 
                     var promotion_price = tprice;
                     var wrong_price = Math.abs(parseInt(tprice)) + Math.abs(parseInt(tprice))*discount/100;
-                    console.log(wrong_price);
                     var html_price = numeral(Math.abs(parseInt(wrong_price))*fnum).format('0,0');
 
 
                     var html_price = '<span>' + html_price + '</span>';
                     var html_price_promotion = numeral(Math.abs(parseInt(promotion_price))*fnum).format('0,0');
-                    
+
                     var html_price_promotion = '<span>' + html_price_promotion + '</span>VNĐ';
                     $('#pri-num').html(html_price);
                     $('#promotion_price').html(html_price_promotion);
@@ -180,7 +177,7 @@ $(document).ready(function () {
 
                     var html_price = '<span>' + html_price + '</span>';
                     var html_price_promotion = numeral(Math.abs(parseInt(promotion_price))*fnum).format('0,0');
-
+                    console.log('html_price_promotion: 'html_price_promotion);
                     var html_price_promotion = '<span>' + html_price_promotion + '</span>VNĐ';
                     $('#pri-num').html(html_price);
                     $('#promotion_price').html(html_price_promotion);
@@ -202,11 +199,11 @@ $(document).ready(function () {
                         var wrong_price = Math.abs(parseInt(price)) + Math.abs(parseInt(price))*discount/100;
                     }
                     // price = $(this).attr('data-price');
-                    console.log(price);
                     $('input[name="number"]').val(fnum);
                     var html_price = numeral(Math.abs(parseInt(wrong_price))*fnum).format('0,0');
                     var html_price_promotion = numeral(Math.abs(parseInt(promotion_price))*fnum).format('0,0');
-
+                    console.log('html_price_promotion: 'html_price_promotion);
+                    
                     var html_price = '<span>' + html_price + '</span>';
                     var html_price_promotion = '<span>' + html_price_promotion + '</span>VNĐ';
                     $('#pri-num').html(html_price);
