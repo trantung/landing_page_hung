@@ -23,7 +23,7 @@
         </div>
           <input type="hidden" name="discount_default" value="{{$discount}}">
         <div class="title_p">
-            <h1 class="tite-p"> Vòng tay ngọc lượng tử Terahertz</h1>
+            <h1 class="tite-p" id="product_name">{{$productFirst->text}}</h1>
         </div>
         <div class="form-group-p">
             <label>Hình Thức</label>

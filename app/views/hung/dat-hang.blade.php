@@ -23,7 +23,7 @@
 	              	<span class="note"><i>( Chú ý: địa chỉ càng cụ thể, nhân viên giao hàng càng dễ tìm)</i></span>
 	              	<textarea id="address"></textarea>
 	          	</div>
-	          	<h2>Gi chú của khách hàng</h2>
+	          	<h2>Ghi chú của khách hàng</h2>
 	          	<div class="layui-form-item">
 	              	<span class="note"><i>(không bắt buộc)</i></span>
 	              	<textarea id="content"></textarea>
