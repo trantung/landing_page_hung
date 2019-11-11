@@ -113,7 +113,6 @@ var x = setInterval(function() {
         var size = document.getElementById("size");
         var kind_id = e.options[e.selectedIndex].value;
         var size_id = size.options[size.selectedIndex].value;
-        console.log(size_id);
         if (size_id != '') {
             document.getElementById('size').value=size_id;
         }
@@ -139,7 +138,6 @@ var x = setInterval(function() {
             });
         } else {
             if (size_id != '' && kind != '') {
-                console.log(123);
                 $.ajax({
                     url: "/ajax/get_product_by_kind_size",
                     type: "post",
