@@ -186,6 +186,7 @@ $(document).ready(function () {
             $('.increase').click(function () {
                 if (Math.abs(parseInt(fnum)) < 1){
                     $('input[name="number"]').val(1);
+                    
                 }else{
                     fnum = Math.abs(parseInt(fnum)) + 1;
                     if (typeof $('input[name=price]').val() === "undefined") {
@@ -201,7 +202,7 @@ $(document).ready(function () {
                     $('input[name="number"]').val(fnum);
                     var html_price = numeral(Math.abs(parseInt(wrong_price))*fnum).format('0,0');
                     var html_price_promotion = numeral(Math.abs(parseInt(promotion_price))*fnum).format('0,0');
-                    
+
                     var html_price = '<span>' + html_price + '</span>';
                     var html_price_promotion = '<span>' + html_price_promotion + '</span>VNĐ';
                     $('#pri-num').html(html_price);
