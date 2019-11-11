@@ -89,7 +89,7 @@ class ProductController extends AdminController {
         $product->update($input);
         $sizeKind = SizeKind::where('product_id', $id)->delete();
         SizeKind::create([
-            'product_id' => $productId,
+            'product_id' => $id,
             'size_id' => $input['size'],
             'kind_id' => $input['kind'],
             'price' => $input['price'],
