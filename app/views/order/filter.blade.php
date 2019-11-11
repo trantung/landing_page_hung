@@ -1,5 +1,5 @@
 <div class="box alert">
-	{{ Form::open(['action' => (AdminOrderController@search), 'method' => 'GET', 'class' => 'filter-document-form']) }}
+	{{ Form::open(['action' => ('AdminOrderController@search'), 'method' => 'GET', 'class' => 'filter-document-form']) }}
 		<div class="input-group inline-block" style="max-width: 150px">
 			<label>Size</label>
 			{{  Form::select('size', [''=>'Default'] + Size::lists('name', 'id'), Input::get('size'), array('class' => 'form-control' )) }}
