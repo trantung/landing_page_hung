@@ -47,29 +47,27 @@ var x = setInterval(function() {
         var size_id = size.options[size.selectedIndex].value;
         if (kind_id != '') {
             document.getElementById('kind').value=kind_id;
-        }
-        if (size_id == '') {
-            $.ajax({
-                url: "/ajax/kind",
-                type: "post",
-                data: {
-                    kind_id : kind_id
-                },
-                success: function (data) {
-                    var text = '<option value=""> Chọn một tùy chọn </option>';
-                    for (var key in data) {
-                        if (data.hasOwnProperty(key)) {
-                            var text = text + '<option value="' + key + '">' + data[key] + '</option>';
+            if (size_id == '') {
+                $.ajax({
+                    url: "/ajax/size",
+                    type: "post",
+                    data: {
+                        kind_id : kind_id
+                    },
+                    success: function (data) {
+                        var text = '<option value=""> Chọn một tùy chọn </option>';
+                        for (var key in data) {
+                            if (data.hasOwnProperty(key)) {
+                                var text = text + '<option value="' + key + '">' + data[key] + '</option>';
+                            }
                         }
+                        $('#size').html(text);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                       console.log(textStatus, errorThrown);
                     }
-                    $('#size').html(text);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                   console.log(textStatus, errorThrown);
-                }
-            });
-        } else {
-            if (kind_id != '') {
+                });
+            } else {
                 $.ajax({
                     url: "/ajax/get_product_by_kind_size",
                     type: "post",
@@ -104,6 +102,7 @@ var x = setInterval(function() {
                 });
             }
         }
+        
     }
 
     function changeSize(){
@@ -113,29 +112,27 @@ var x = setInterval(function() {
         var size_id = size.options[size.selectedIndex].value;
         if (size_id != '') {
             document.getElementById('size').value=size_id;
-        }
-        if (kind_id == '') {
-            $.ajax({
-                url: "/ajax/size",
-                type: "post",
-                data: {
-                    size_id : size_id
-                },
-                success: function (data) {
-                    var text = '<option value=""> Chọn một tùy chọn </option>';
-                    for (var key in data) {
-                        if (data.hasOwnProperty(key)) {
-                            var text = text + '<option value="' + key + '">' + data[key] + '</option>';
+            if (kind_id == '') {
+                $.ajax({
+                    url: "/ajax/kind",
+                    type: "post",
+                    data: {
+                        size_id : size_id
+                    },
+                    success: function (data) {
+                        var text = '<option value=""> Chọn một tùy chọn </option>';
+                        for (var key in data) {
+                            if (data.hasOwnProperty(key)) {
+                                var text = text + '<option value="' + key + '">' + data[key] + '</option>';
+                            }
                         }
+                        $('#kind').html(text);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                       console.log(textStatus, errorThrown);
                     }
-                    $('#kind').html(text);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                   console.log(textStatus, errorThrown);
-                }
-            });
-        } else {
-            if (size_id != '' && kind != '') {
+                });
+            } else {
                 $.ajax({
                     url: "/ajax/get_product_by_kind_size",
                     type: "post",
@@ -170,6 +167,7 @@ var x = setInterval(function() {
                 });
             }
         }
+        
 
         
     }
