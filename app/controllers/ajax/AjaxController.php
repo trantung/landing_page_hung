@@ -269,7 +269,7 @@ class AjaxController extends \BaseController {
         $result['product_id'] = $kindSize->product_id;
         $productName = Product::find($result['product_id'])->text;
         $sizeName = Size::find($sizeId)->name;
-        $productText = $productName . $sizeName;
+        $productText = $productName .' '.$sizeName;
         $result['price'] = $kindSize->price;
         $result['product_name'] = $productText;
         $result['price_del'] = $this->getPriceDel($kindSize->price);
