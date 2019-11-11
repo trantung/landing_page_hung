@@ -37,7 +37,7 @@
                 <div class="item-inner" style="overflow:hidden;">
                   <div class="item-thumb"><img src="{{$product->image_url}}"></div>
                   <div class="item-info">
-                    <h4 class="title">{{$product->text}}</h4>
+                    <h4 class="title">{{$product->text}} {{$sizeName}}</h4>
                     <?php
                    
                           function format_price($money, $cur){

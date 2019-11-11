@@ -35,10 +35,16 @@ class OrderController extends Controller {
 			$productId = $input['product_id'];
 		}
 		$product = Product::find($productId);
+		$sizeKind = SizeKind::where('product_id', $productId)->first();
+		$sizeName = null;
+		if ($sizeKind) {
+			$sizeId = $size->id;
+			$sizeName = Size::find($sizeId)->name;
+		}
 		$number = $input['number'];
 		$discount = Discount::find(1);
 		$config = AdminConfig::find(1);
-		return View::make('hung.dat-hang')->with(compact('product','number', 'discount','config'));
+		return View::make('hung.dat-hang')->with(compact('product','number', 'discount','config', 'sizeName'));
 	}
 	public function order()
 	{
