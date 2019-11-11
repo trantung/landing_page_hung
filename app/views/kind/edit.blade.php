@@ -9,12 +9,12 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="box box-primary">
-            {{ Form::open(array('action' => array('KindController@update', $size->id), 'method' => "PUT", 'files' => true)) }}
+            {{ Form::open(array('action' => array('KindController@update', $kind->id), 'method' => "PUT", 'files' => true)) }}
                 <div class="box-body">
                     <div class="row">
                         <div class="col-sm-6">
                             <label>Name</label>
-                            {{  Form::text('name', $size->name, array('class' => 'form-control' )) }}
+                            {{  Form::text('name', $kind->name, array('class' => 'form-control' )) }}
                         </div>
                     </div> 
                 </div>

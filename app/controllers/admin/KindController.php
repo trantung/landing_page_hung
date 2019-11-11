@@ -64,7 +64,7 @@ class KindController extends AdminController {
     public function edit($id)
     {
         $kind = AdminKind::find($id);
-        return View::make('kind.edit')->with(compact('product'));
+        return View::make('kind.edit')->with(compact('kind'));
     }
 
 
