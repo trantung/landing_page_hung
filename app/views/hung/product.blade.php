@@ -114,7 +114,6 @@
                 product_id : product_id
             } ,
             success: function (data) {
-                console.log(data);
                 $('#remove_product').remove();
                 // $('#number_default').remove();
                 // $('#number_default').val() = 1;
