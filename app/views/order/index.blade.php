@@ -15,11 +15,11 @@
 	<tr>
             <th>STT</th>
             <th>Product + color</th>
-            <th>Tổng tiền chưa discount</th>
+            <!-- <th>Tổng tiền chưa discount</th> -->
             <th>Tổng tiền nhận</th>
             <th>Tỉnh/thành</th>
             <th>Họ tên</th>
-            <th>Email</th>
+            <!-- <th>Email</th> -->
             <th>Phone</th>
             <th>Address</th>
             <th>Comment</th>
@@ -34,9 +34,9 @@
             <td>
                 {{ ProductOrder::getNameProductByOrder($order->id) }}
             </td>
-            <td>
+            <!-- <td>
                 {{ Order::getValueByOrderId($order->id,'total_price') }}
-            </td>
+            </td> -->
 
             <td>
                 {{ Order::getValueByOrderId($order->id,'money_pay') }}
@@ -48,15 +48,15 @@
             <td>
                 {{ Order::getValueByOrderId($order->id,'receiver_name') }}
             </td>
-            <td>
+          <!--   <td>
                 {{ Order::getValueByOrderId($order->id,'email') }}
-            </td>
+            </td> -->
             
             <td>
                 {{ Order::getValueByOrderId($order->id,'phone_name') }}
             </td>
             <td>
-                {{ Order::getValueByOrderId($order->id,'address') }}
+                {{ nl2br(Order::getValueByOrderId($order->id,'address')) }}
             </td>
             <td>
                 {{ Order::getValueByOrderId($order->id,'comment') }}
