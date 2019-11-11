@@ -2,11 +2,11 @@
 	{{ Form::open(['action' => ('AdminOrderController@search'), 'method' => 'GET', 'class' => 'filter-document-form']) }}
 		<div class="input-group inline-block" style="max-width: 150px">
 			<label>Size</label>
-			{{  Form::select('size', [''=>'Default'] + Size::lists('name', 'id'), Input::get('size'), array('class' => 'form-control' )) }}
+			{{  Form::select('size_id', [''=>'Default'] + Size::lists('name', 'id'), Input::get('size_id'), array('class' => 'form-control' )) }}
 		</div>
 		<div class="input-group inline-block" style="max-width: 150px">
 			<label>Kind</label>
-			{{  Form::select('kind', [''=>'Default'] + AdminKind::lists('name', 'id'), Input::get('kind'), array('class' => 'form-control' )) }}
+			{{  Form::select('kind_id', [''=>'Default'] + AdminKind::lists('name', 'id'), Input::get('kind_id'), array('class' => 'form-control' )) }}
 		</div>
 
 		<div class="input-group inline-block" style="vertical-align: bottom;">
