@@ -19,6 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/hung/css/owl.carousel.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="assets/hung/js/main-js/jquery.min.js"></script>
+	<script src="assets/hung/js/main-js/numeral.min.js"></script>
 	<script type="text/javascript" src="assets/hung/js/main-js/main.js"></script>
 	<script type="text/javascript" src="assets/hung/js/main-js/owl.carousel.js"></script>
 </head>
