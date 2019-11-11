@@ -266,8 +266,12 @@ class AjaxController extends \BaseController {
         $kindId = $input['kind_id'];
         $kindSize = SizeKind::where('size_id', $sizeId)->where('kind_id', $kindId)
             ->first();
-        $result['product_id'] = $kindSize->product_id; 
+        $result['product_id'] = $kindSize->product_id;
+        $productName = Product::find($result['product_id'])->text;
+        $sizeName = Size::find($sizeId)->name;
+        $productText = $productName . $sizeName;
         $result['price'] = $kindSize->price;
+        $result['product_name'] = $productText;
         $result['price_del'] = $this->getPriceDel($kindSize->price);
         $result['image_url'] = $this->getImageUrlProduct($kindSize->product_id);
         return Response::json($result);

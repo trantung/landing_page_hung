@@ -39,6 +39,7 @@ var x = setInterval(function() {
   }
 }, 1000);
 </script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 
 <script>
     function changeKind(){
@@ -82,8 +83,12 @@ var x = setInterval(function() {
                         console.log(data);
                         var price_del = data['price_del'];
                         var price = data['price'] + ' VNĐ';
+                        var product_name = data['product_name'];
+                        var price_del = numeral(price_del).format('0,0');
+
                         $('#pri-num').html(price_del);
                         $('#promotion_price').html(price);
+                        $('#product_name').html(product_name);
 
                         $('#remove_product').remove();
                         var text = '<input id="price" type="hidden" name="price" value="'+data['price']+'">' + '<input id="color" type="hidden" name="product_id" value="'+data['product_id']+'">'+
@@ -144,6 +149,10 @@ var x = setInterval(function() {
                     success: function (data) {
                         var price_del = data['price_del'];
                         var price = data['price'] + ' VNĐ';
+                        var product_name = data['product_name'];
+                        var price_del = numeral(price_del).format('0,0');
+
+                        $('#product_name').html(product_name);
                         $('#pri-num').html(price_del);
                         $('#promotion_price').html(price);
 
