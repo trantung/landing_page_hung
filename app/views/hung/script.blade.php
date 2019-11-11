@@ -56,7 +56,7 @@ var x = setInterval(function() {
                     kind_id : kind_id
                 },
                 success: function (data) {
-                    var text = '<option value=""> Default </option>';
+                    var text = '<option value=""> Chọn một tùy chọn </option>';
                     for (var key in data) {
                         if (data.hasOwnProperty(key)) {
                             var text = text + '<option value="' + key + '">' + data[key] + '</option>';
@@ -122,7 +122,7 @@ var x = setInterval(function() {
                     size_id : size_id
                 },
                 success: function (data) {
-                    var text = '<option value=""> Default </option>';
+                    var text = '<option value=""> Chọn một tùy chọn </option>';
                     for (var key in data) {
                         if (data.hasOwnProperty(key)) {
                             var text = text + '<option value="' + key + '">' + data[key] + '</option>';
