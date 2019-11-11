@@ -39,8 +39,6 @@ var x = setInterval(function() {
   }
 }, 1000);
 </script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
-
 <script>
     function changeKind(){
         var e = document.getElementById("kind");
