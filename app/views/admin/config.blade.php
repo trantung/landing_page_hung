@@ -27,7 +27,7 @@
                                     <label>Google analytics  <span class="text-warning"></span></label>
                                     {{  Form::textarea('google_code', $config->google_code, array('class' => 'form-control', 'rows'=>5)) }}
                                 </div>
-				<div class="form-group">
+				                <div class="form-group">
                                     <label>Facebook code  <span class="text-warning"></span></label>
                                     {{  Form::textarea('fb_analytic', $config->fb_analytic, array('class' => 'form-control', 'rows'=>5)) }}
                                 </div>
@@ -65,7 +65,11 @@
                                     <label>text 3 <span class="text-warning">(*)</span></label>
                                     {{  Form::text('text3', $config->text3, array('class' => 'form-control' )) }}
                                 </div>
-
+                                <div class="form-group">
+                                    <label>text_next_step <span class="text-warning">(*)</span></label>
+                                    {{  Form::text('text_next_step', $config->text_next_step, array('class' => 'form-control' )) }}
+                                </div>
+                                
                                 <div class="form-group">
                                     <label>text fee <span class="text-warning"></span></label>
                                     {{  Form::text('text_fee_transfer', $config->text_fee_transfer, array('class' => 'form-control' )) }}

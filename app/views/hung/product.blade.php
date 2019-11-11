@@ -84,7 +84,7 @@
             </div>
            
             <div class="col-6" id="buy">
-                <input type="submit" value="Bước tiếp theo" lay-filter="nowBuy" lay-submit style="font-size: 15px;">
+                <input type="submit" value="{{$config->text_next_step}}" lay-filter="nowBuy" lay-submit style="font-size: 15px;">
             </div>
         </div>
 
