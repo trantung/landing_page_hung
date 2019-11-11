@@ -177,7 +177,6 @@ $(document).ready(function () {
 
                     var html_price = '<span>' + html_price + '</span>';
                     var html_price_promotion = numeral(Math.abs(parseInt(promotion_price))*fnum).format('0,0');
-                    console.log('html_price_promotion: 'html_price_promotion);
                     var html_price_promotion = '<span>' + html_price_promotion + '</span>VNĐ';
                     $('#pri-num').html(html_price);
                     $('#promotion_price').html(html_price_promotion);
@@ -202,7 +201,6 @@ $(document).ready(function () {
                     $('input[name="number"]').val(fnum);
                     var html_price = numeral(Math.abs(parseInt(wrong_price))*fnum).format('0,0');
                     var html_price_promotion = numeral(Math.abs(parseInt(promotion_price))*fnum).format('0,0');
-                    console.log('html_price_promotion: 'html_price_promotion);
                     
                     var html_price = '<span>' + html_price + '</span>';
                     var html_price_promotion = '<span>' + html_price_promotion + '</span>VNĐ';
