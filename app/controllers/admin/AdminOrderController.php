@@ -25,8 +25,16 @@ class AdminOrderController extends AdminController {
     public function search()
     {
         $input = Input::all();
-        $sizeId = $input['size_id'];
-        $kindId = $input['kind_id'];
+        if (!isset($input['size_id']) || empty($input['size_id']) ) {
+            $sizeId = null;
+        } else {
+            $sizeId = $input['size_id'];
+        }
+        if (!isset($input['kind_id']) || empty($input['kind_id']) ) {
+            $kindId = null;
+        } else {
+            $kindId = $input['kind_id'];
+        }
         if (!$sizeId && !$kindId) {
             return Redirect::action('AdminOrderController@index');
         }
