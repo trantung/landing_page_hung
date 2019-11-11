@@ -49,7 +49,7 @@ var x = setInterval(function() {
             document.getElementById('kind').value=kind_id;
             if (size_id == '') {
                 $.ajax({
-                    url: "/ajax/size",
+                    url: "/ajax/kind",
                     type: "post",
                     data: {
                         kind_id : kind_id
@@ -114,7 +114,7 @@ var x = setInterval(function() {
             document.getElementById('size').value=size_id;
             if (kind_id == '') {
                 $.ajax({
-                    url: "/ajax/kind",
+                    url: "/ajax/size",
                     type: "post",
                     data: {
                         size_id : size_id
