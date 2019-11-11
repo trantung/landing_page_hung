@@ -23,7 +23,7 @@
         </div>
           <input type="hidden" name="discount_default" value="{{$discount}}">
         <div class="title_p">
-            <h1 class="tite-p" id="product_name">{{$productFirst->text}}</h1>
+            <h1 class="tite-p" id="product_name">{{$productFirst->text}} {{$sizeFirst->name}}</h1>
         </div>
         <div class="form-group-p">
             <label>Hình Thức</label>
@@ -46,7 +46,7 @@
         </div>
         <div class="layui-product-meta">
             <div class="layui-product-price"> 
-                <span class="market-price"> <del id="pri-num">{{$productFirst->price + $productFirst->price * $discount/100 }}</del> </span>
+                <span class="market-price"> <del id="pri-num">{{number_format($productFirst->price + $productFirst->price * $discount/100) }}</del> </span>
                 <span  id="promotion_price" class="sale-price"> {{$productFirst->price}}VNĐ</span>
                  <input type="hidden" id="price_first" name="price_first" value="{{$productFirst->price}}">
                  <input type="hidden" name="product_id_first" value="{{$productFirst->id}}">

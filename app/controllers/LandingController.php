@@ -16,10 +16,14 @@ class LandingController extends Controller {
 		// $yrdata= strtotime($date_config);
 		// $date_config = date($date_config.replace(/\s/, 'T'));
     	// dd($date_config);
-
+		$sizeFirst = null;
+		if (Size::first()) {
+			$sizeFirst = Size::first();
+		}
 		View::share('discount', $discount);
 		View::share('comments', $comments);
 		View::share('date_config', $date_config);
+		View::share('sizeFirst', $sizeFirst);
     }
 
 	public function index()
@@ -34,9 +38,13 @@ class LandingController extends Controller {
 		if (Product::first()) {
 			$productFirst = Product::first();
 		}
+		$sizeFirst = null;
+		if (Size::first()) {
+			$sizeFirst = Size::first();
+		}
 		$products = Product::all();
         if ($config) {
-            return View::make('hung.index')->with(compact('config', 'slides','comments','commentOrders', 'productFirst', 'products', 'topSlide', 'belowSlide'));
+            return View::make('hung.index')->with(compact('config', 'slides','comments','commentOrders', 'productFirst', 'products', 'topSlide', 'belowSlide', 'sizeFirst'));
         }
         $config = new AdminConfig;
         return View::make('hung.index')->with(compact('config'));
