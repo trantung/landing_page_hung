@@ -82,7 +82,8 @@ var x = setInterval(function() {
                     success: function (data) {
                         console.log(data);
                         var price_del = data['price_del'];
-                        var price = data['price'] + ' VNĐ';
+                        var price = numeral(data['price']).format('0,0');
+                        var price = price + ' VNĐ';
                         var product_name = data['product_name'];
                         var price_del = numeral(price_del).format('0,0');
 
@@ -148,7 +149,8 @@ var x = setInterval(function() {
                     },
                     success: function (data) {
                         var price_del = data['price_del'];
-                        var price = data['price'] + ' VNĐ';
+                        var price = numeral(data['price']).format('0,0');
+                        var price = price + ' VNĐ';
                         var product_name = data['product_name'];
                         var price_del = numeral(price_del).format('0,0');
 

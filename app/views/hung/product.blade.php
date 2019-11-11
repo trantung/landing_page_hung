@@ -28,7 +28,7 @@
         <div class="form-group-p">
             <label>Hình Thức</label>
            <select class="form-control" id="kind" name="kind_id" onchange="return changeKind();">
-              <option value=""> Default </option>
+              <option value=""> Chọn một tùy chọn </option>
               @foreach(AdminKind::lists('name', 'id') as $key => $value)
                 <option value="{{$key}}"> {{$value}} </option>
               @endforeach 
@@ -38,7 +38,7 @@
         <div class="form-group-p">
             <label>Kích thước</label>
             <select class="form-control" id="size" name="size_id" onchange="return changeSize();">
-              <option value=""> Default </option>
+              <option value=""> Chọn một tùy chọn </option>
               @foreach(Size::lists('name', 'id') as $key => $value)
                 <option value="{{$key}}"> {{$value}} </option>
               @endforeach 
@@ -47,7 +47,7 @@
         <div class="layui-product-meta">
             <div class="layui-product-price"> 
                 <span class="market-price"> <del id="pri-num">{{number_format($productFirst->price + $productFirst->price * $discount/100) }}</del> </span>
-                <span  id="promotion_price" class="sale-price"> {{$productFirst->price}}VNĐ</span>
+                <span  id="promotion_price" class="sale-price"> {{number_format($productFirst->price)}}VNĐ</span>
                  <input type="hidden" id="price_first" name="price_first" value="{{$productFirst->price}}">
                  <input type="hidden" name="product_id_first" value="{{$productFirst->id}}">
             </div>
