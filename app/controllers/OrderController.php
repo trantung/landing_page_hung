@@ -38,7 +38,7 @@ class OrderController extends Controller {
 		$sizeKind = SizeKind::where('product_id', $productId)->first();
 		$sizeName = null;
 		if ($sizeKind) {
-			$sizeId = $size->id;
+			$sizeId = $sizeKind->id;
 			$sizeName = Size::find($sizeId)->name;
 		}
 		$number = $input['number'];
