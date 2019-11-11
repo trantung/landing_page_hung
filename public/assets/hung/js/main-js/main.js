@@ -138,7 +138,10 @@ $(document).ready(function () {
                     var promotion_price = tprice;
                     var wrong_price = Math.abs(parseInt(tprice)) + Math.abs(parseInt(tprice))*discount/100;
                     console.log(wrong_price);
-                    var html_price = '<span>' + Math.abs(parseInt(wrong_price))*fnum + '</span>VNĐ';
+                    var html_price = numeral(Math.abs(parseInt(wrong_price))*fnum).format('0,0');
+
+
+                    var html_price = '<span>' + html_price + '</span>';
                     var html_price_promotion = '<span>' + Math.abs(parseInt(promotion_price))*fnum + '</span>VNĐ';
                     $('#pri-num').html(html_price);
                     $('#promotion_price').html(html_price_promotion);
@@ -171,7 +174,9 @@ $(document).ready(function () {
 
                     }
                     $('input[name="number"]').val(fnum);
-                    var html_price = '<span>' + Math.abs(parseInt(wrong_price))*fnum + '</span>VNĐ';
+                    var html_price = numeral(Math.abs(parseInt(wrong_price))*fnum).format('0,0');
+
+                    var html_price = '<span>' + html_price + '</span>';
                     var html_price_promotion = '<span>' + Math.abs(parseInt(promotion_price))*fnum + '</span>VNĐ';
                     $('#pri-num').html(html_price);
                     $('#promotion_price').html(html_price_promotion);
@@ -195,7 +200,9 @@ $(document).ready(function () {
                     // price = $(this).attr('data-price');
                     console.log(price);
                     $('input[name="number"]').val(fnum);
-                    var html_price = '<span>' + Math.abs(parseInt(wrong_price))*fnum + '</span>VNĐ';
+                    var html_price = numeral(Math.abs(parseInt(wrong_price))*fnum).format('0,0');
+                    
+                    var html_price = '<span>' + html_price + '</span>';
                     var html_price_promotion = '<span>' + Math.abs(parseInt(promotion_price))*fnum + '</span>VNĐ';
                     $('#pri-num').html(html_price);
                     $('#promotion_price').html(html_price_promotion);
