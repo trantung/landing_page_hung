@@ -12,7 +12,7 @@ class AdminOrderController extends AdminController {
      */
     public function index()
     {
-        $data = Order::paginate(20);
+        $data = Order::orderBy('created_at', 'desc')->paginate(20);
         return View::make('order.index')->with(compact('data'));
     }
     public function destroy($id)
@@ -47,7 +47,7 @@ class AdminOrderController extends AdminController {
         }
         $productIds = $sizeKind->lists('product_id');
         $orderIds = ProductOrder::whereIn('product_id', $productIds)->lists('order_id');
-        $data = Order::whereIn('id', $orderIds)->paginate(20);
+        $data = Order::whereIn('id', $orderIds)->orderBy('created_at', 'desc')->paginate(20);
         return View::make('order.index')->with(compact('data'));
     }
 
