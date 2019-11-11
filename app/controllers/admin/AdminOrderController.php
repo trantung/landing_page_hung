@@ -20,7 +20,27 @@ class AdminOrderController extends AdminController {
         //
         $image = Order::destroy($id);
         return Redirect::action('AdminOrderController@index')->withMessage('<i class="fa fa-check-square-o fa-lg"></i> Xóa thành công!');
+    }
 
+    public function search()
+    {
+        $input = Input::all();
+        $sizeId = $input['size_id'];
+        $kindId = $input['kind_id'];
+        if (!$sizeId && !$kindId) {
+            return Redirect::action('AdminOrderController@index');
+        }
+        $sizeKind = SizeKind::whereNotNull('created');
+        if ($sizeId) {
+            $sizeKind = $sizeKind->where('size_id', $sizeId);
+        }
+        if ($kindId) {
+            $sizeKind = $sizeKind->where('kind_id', $kindId);
+        }
+        $productIds = $sizeKind->lists('product_id');
+        $orderIds = ProductOrder::whereIn('product_id', $productIds)->lists('order_id');
+        $data = Order::whereIn('id', $orderIds)->paginate(20);
+        return View::make('order.index')->with(compact('data'));
     }
 
 }
