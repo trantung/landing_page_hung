@@ -13,7 +13,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	@if($config->fb_image)
-	<meta property="og:image" content="{{ $config->fb_image }}" />
+	<meta property="og:image" content="{{ url($config->fb_image) }}" />
 	@else
 	<meta property="og:image" content="http://terahertz.vinstoresvn.com/product/1.png" />
 	@endif
