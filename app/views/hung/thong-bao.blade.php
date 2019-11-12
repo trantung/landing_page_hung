@@ -1,6 +1,4 @@
-
 @include('hung.header')
-
 
 <div class="layui-container">
 

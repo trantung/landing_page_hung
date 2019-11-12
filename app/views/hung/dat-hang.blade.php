@@ -5,8 +5,6 @@
           <!-- <form class="layui-form layui-form-pane" name="addorder" action="http://localhost/ionlinei.com/thong-bao.php" method="POST"> -->
             {{ Form::open(array('action' => array('OrderController@order'), 'method' => "POST", 'class' => 'layui-form layui-form-pane')) }}
             <input type="hidden" name="title" value="{{$product->text}}">
-            <input type="hidden" name="code" value="{{$product->code}}">
-            <input type="hidden" name="color" value="{{$product->color}}">
             <input type="hidden" name="number" value="{{$number}}">
             <input type="hidden" name="product_id" value="{{$product->id}}">
           	<div class="newAddress">
@@ -16,17 +14,17 @@
 	            </div>
 	            <div class="layui-form-item">
 	              	<label><b> Số điện thoại</b><span style="color: red">*</span> <i>(bắt buộc)</i></label>
-	                <input type="text" name="phone" autocomplete="off" class="layui-input" placeholder="Số điện thoại" id ="ab_sodt_1553008285380">
+	                <input type="text" name="phone_name" autocomplete="off" class="layui-input" placeholder="Số điện thoại" id ="ab_sodt_1553008285380">
 	            </div>
 	            <div class="layui-form-item">
 	              	<label><b> Địa chỉ cụ thể</b><span style="color: red">*</span> <i>(bắt buộc)</i></label>
 	              	<span class="note"><i>( Chú ý: địa chỉ càng cụ thể, nhân viên giao hàng càng dễ tìm)</i></span>
-	              	<textarea id="address"></textarea>
+	              	<textarea name="address" id="address"></textarea>
 	          	</div>
 	          	<h2>Ghi chú của khách hàng</h2>
 	          	<div class="layui-form-item">
 	              	<span class="note"><i>(không bắt buộc)</i></span>
-	              	<textarea id="content"></textarea>
+	              	<textarea name="comment" id="content"></textarea>
 	          	</div>
 	   
           	</div>

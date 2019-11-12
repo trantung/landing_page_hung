@@ -59,45 +59,15 @@ class OrderController extends Controller {
 		$order = [];
 		$order['money_pay'] = $input['money_pay'];
 		$order['status'] = 1;
-		if (isset($input['fullname'])) {
-			$order['receiver_name'] = $input['fullname'];
-		} else {
-			$order['receiver_name'] = 'trantunghn196@gmail.com';
-		}
-		// $order['receiver_name'] = $input['fullname'];
-		// $order['phone_name'] = $input['phone'];
-		if (isset($input['phone_name'])) {
-			$order['phone_name'] = $input['phone_name'];
-		} else {
-			$order['phone_name'] = '0912957458';
-		}
-		if (isset($input['email'])) {
-			$order['email'] = $input['email'];
-		} else {
-			$order['email'] = 'trantunghn196@gmail.com';
-		}
-		if (isset($input['city'])) {
-			$order['city'] = $input['city'];
-		} else {
-			$order['city'] = 'Hà ';
-		}
-		// $order['city'] = $input['city'];
-		if (isset($input['detailed'])) {
-			$order['address'] = $input['detailed'];
-		} else {
-			$order['address'] = ' ';
-		}
-		// $order['address'] = $input['detailed'];
-		// $order['comment'] = $input['remark'];
-		if (isset($input['detailremarked'])) {
-			$order['comment'] = $input['detailed'];
-		} else {
-			$order['comment'] = ' ';
-		}
+		$order['receiver_name'] = 'trantunghn196@gmail.com';
+		$order['phone_name'] = $input['phone_name'];
+		$order['email'] = 'trantunghn196@gmail.com';
+		$order['city'] = 'Hà Nội';
+		$order['address'] = $input['address'];
+		$order['comment'] = $input['comment'];
 		$order['total_price'] = $input['total_price'];
 		$orderId = Order::create($order)->id;
 		//luu vao product_order
-
 		$data = [];
 		$product = Product::find($product_id);
 		$productName = $product->text;
@@ -114,80 +84,7 @@ class OrderController extends Controller {
 		$detail = [
             'orderCode' => $orderId,
         ];
-		// Mail::send('emails.email_student', $detail, function($message) use ($order, $detail){
-  //           // $message->from('noreply@stayhomeenglish.com', 'Site Admin');
-  //           $message->to('vinstoresvn@gmail.com')
-  //               ->subject('Thông báo có đơn hàng mới');
-  //       });
-//         name	Bắt buộc	Tên khách hàng
-// telephone	Bắt buộc	Điện thoại khách
-// name_receiver	Bắt buộc	Tên người nhận hàng (có thể để giống tên khách)
-// invoicestatus	Bắt buộc	Trạng thái đơn hàng, mặc định AutoCreated
-        // subtotal	Bắt buộc	Tiền hàng, mặc định : 0
-// total	Bắt buộc	Tổng tiền hàng + phụ thu - giảm trừ (nếu có) : mặc định :0
-//         listProduct	Bắt buộc	Mảng các giá trị về sản phẩm trong đơn hàng
-// price	Bắt buộc	Giá sản phẩm
-// amount	Bắt buộc	Số lượng bán
-// productName	Bắt buộc	Tên sản phẩm
-// productcode	Bắt buộc
-
-        $abit = '[
-                      {
-                        "name": "Hoang Xuan Du",
-                        "telephone": "0123456789",
-                        "name_receiver": "Mr Du",
-                        "invoicestatus": "AutoCreated",
-                        "city": "",
-                        "district": "",
-                        "address": "203 Minh Khai",
-                        "note": "",
-                        "hinhthucvc": "Chuyenthuong",
-                        "discount_percent": "0.000",
-                        "discount_amount": "0.000",
-                        "s_h_amount": "0.000",
-                        "ghichu1": "",
-                        "ghichu2": "",
-                        "notevanchuyen": "",
-                        "giamgia": "0",
-                        "phuthu": "0",
-                        "phivanchuyen": "0",
-                        "adjustment": "0.000",
-                        "taxtype": "individual",
-                        "deposits": 0,
-                        "subtotal": 450000,
-                        "taxtotal_invoice": "0.000",
-                        "total": 450000,
-                        "accountid": 0,
-                        "list_pageitem": "289582808317941",
-                        "listProduct": [
-                            {
-                                "price": "250000",
-                                "amount": "2",
-                                "productName": "SP Xoay 3 vòng",
-                                "productcode": "xoay-3-vong11",
-                                "weight": "100",
-                                "discount_percent_product": "0",
-                                "discount_amount_product": "0",
-                                "tax1": "0",
-                                "qtyinstock": "0"
-                            },
-                            {
-                                "price": "298000",
-                                "amount": "3",
-                                "storeId": 1,
-                                "productName": "Giày Boot Nam Cao Cổ Khâu Đế Màu Đen Da Sần M89-38",
-                                "productcode": "M89-38222",
-                                "weight": "100",
-                                "discount_percent_product": "0",
-                                "discount_amount_product": "0",
-                                "tax1": "0",
-                                "qtyinstock": "0"
-                            }
-                        ]
-                    }
-                    ]';
-         
-		return View::make('hung.thong-bao')->with(compact('money', 'orderId', 'config', 'abit','order', 'data', 'productName','productCode'));
+		return View::make('hung.thong-bao')->with(compact('money', 'orderId', 'config','order', 'data', 'productName','productCode'));
 	}
 	public function success()
 	{
