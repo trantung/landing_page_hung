@@ -12,7 +12,11 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	@if($config->fb_image)
+	<meta property="og:image" content="{{ $config->fb_image }}" />
+	@else
 	<meta property="og:image" content="http://terahertz.vinstoresvn.com/product/1.png" />
+	@endif
 	<link rel="shortcut icon" href="/favicon.png?v=1.0">
 	<meta name="theme-color" content="#ac0000" />
 	<link rel="stylesheet" type="text/css" href="assets/hung/css/style.css">

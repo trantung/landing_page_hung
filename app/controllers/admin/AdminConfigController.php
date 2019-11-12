@@ -25,6 +25,7 @@ class AdminConfigController extends AdminController {
         $input = Input::all();
         $config = AdminConfig::find(1);
         $input['image_body'] = CommonUpload::uploadImage(UPLOADCONFIG, 'image_body', $config->image_body);
+        $input['fb_image'] = CommonUpload::uploadImage(UPLOADCONFIG, 'fb_image', $config->fb_image);
         $config->update($input);
         
         return Redirect::action('AdminConfigController@getConfig');
