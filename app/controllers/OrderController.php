@@ -59,7 +59,7 @@ class OrderController extends Controller {
 		$order = [];
 		$order['money_pay'] = $input['money_pay'];
 		$order['status'] = 1;
-		$order['receiver_name'] = 'trantunghn196@gmail.com';
+		$order['receiver_name'] = $input['fullname'];
 		$order['phone_name'] = $input['phone_name'];
 		$order['email'] = 'trantunghn196@gmail.com';
 		$order['city'] = 'Hà Nội';
