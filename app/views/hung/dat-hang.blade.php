@@ -10,16 +10,16 @@
           	<div class="newAddress">
 	            <div class="layui-form-item">
 	              	<label> <b>Họ Và tên </b><span style="color: red">*</span> <i>(bắt buộc)</i></label>
-	                <input type="text" name="fullname" lay-filter="name" autocomplete="off" class="layui-input" placeholder="Họ và tên" id = "ab_hoten_1553008285380">
+	                <input type="text" name="fullname" lay-filter="name" autocomplete="off" class="layui-input" placeholder="Họ và tên" id = "ab_hoten_1553008285380" required>
 	            </div>
 	            <div class="layui-form-item">
 	              	<label><b> Số điện thoại</b><span style="color: red">*</span> <i>(bắt buộc)</i></label>
-	                <input type="text" name="phone_name" autocomplete="off" class="layui-input" placeholder="Số điện thoại" id ="ab_sodt_1553008285380">
+	                <input type="text" name="phone_name" autocomplete="off" class="layui-input" placeholder="Số điện thoại" id ="ab_sodt_1553008285380" required>
 	            </div>
 	            <div class="layui-form-item">
 	              	<label><b> Địa chỉ cụ thể</b><span style="color: red">*</span> <i>(bắt buộc)</i></label>
 	              	<span class="note"><i>( Chú ý: địa chỉ càng cụ thể, nhân viên giao hàng càng dễ tìm)</i></span>
-	              	<textarea name="address" id="address"></textarea>
+	              	<textarea name="address" id="address" required></textarea>
 	          	</div>
 	          	<h2>Ghi chú của khách hàng</h2>
 	          	<div class="layui-form-item">
