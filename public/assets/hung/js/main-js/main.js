@@ -228,22 +228,22 @@ $(document).ready(function () {
 // validate form
     $("#button").click(function(){
       var name = $('input[name=fullname]').val();
-      var mobile = $('input[name=phone]').val();
-      var detailed = $('input[name=detailed]').val();
+      var mobile = $('input[name=phone_name]').val();
+      var detailed = $('input[name=address]').val();
       if (name == "") {
         alert('Vui lòng điền họ tên');
-        $('input[name=name]').focus();
-        return false
+        $('input[name=fullname]').focus();
+        return false;
       }
       if (mobile == "") {
         alert('Vui lòng điền số điện thoại');
-        $('input[name=mobile]').focus();
-        return false
+        $('input[name=phone_name]').focus();
+        return false;
       }
       if (detailed == "") {
         alert('Vui lòng điền địa chỉ cụ thể');
-        $('input[name=detailed]').focus();
-        return false
+        $('input[name=address]').focus();
+        return false;
       }
       $('form').submit();
 
