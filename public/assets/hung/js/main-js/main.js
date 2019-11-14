@@ -245,8 +245,6 @@ $(document).ready(function () {
         $('input[name=address]').focus();
         return false;
       }
-      $('form').submit();
-
     });
     
     $("#province").hide();
