@@ -1,0 +1,51 @@
+
+
+<?php $__env->startSection('title'); ?>
+<?php echo $title='comment'; ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-primary">
+            <?php echo Form::open(array('action' => array('CommentController@update', $comment->id), 'method' => "PUT", 'files' => true)); ?>
+
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Name</label>
+                            <?php echo Form::text('name', $comment->name, array('class' => 'form-control' )); ?>
+
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Comment</label>
+                            <?php echo Form::text('comment', $comment->comment, array('class' => 'form-control' )); ?>
+
+                        </div>
+                    </div> 
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Ảnh</label>
+                            <input type="file" name="image_url" class="form-control"><br>
+                            <img src="<?php echo !empty($comment->image_url) ? url($comment->image_url) : NO_IMG; ?>" width="150px" height="auto"  />
+                        </div>
+                    </div> 
+
+                </div>
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Lưu lại</button>
+                </div>
+            <?php echo Form::close(); ?>
+
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

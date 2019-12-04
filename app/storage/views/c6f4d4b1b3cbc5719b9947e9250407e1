@@ -1,0 +1,67 @@
+
+
+<?php $__env->startSection('title'); ?>
+    <?php echo $title='Quản lý product'; ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+    <div class="row margin-bottom">
+        <div class="col-xs-12">
+                <?php echo renderUrl('ProductController@create', '<i class="glyphicon glyphicon-plus-sign"></i> Thêm product', [], ['class' => 'btn btn-primary']); ?>
+
+        </div>
+    </div>
+    <table class ="table table-bordered table-striped table-hover">
+        <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Kind</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th width="145px">Thao tác</th>
+        </tr>
+        <?php foreach($data as $key => $product): ?>
+        <tr>
+            <td>#<?php echo $key + 1 + ($data->getPerPage() * ($data->getCurrentPage() -1)); ?></td>
+            <td>
+                <?php echo $product->text; ?>
+
+            </td>
+            <td>
+                <?php if(Size::find($product->size)): ?>
+                <?php echo Size::find($product->size)->name; ?>
+
+                <?php endif; ?>
+            </td>
+            <td>
+                <?php if(AdminKind::find($product->kind)): ?>
+                <?php echo AdminKind::find($product->kind)->name; ?>
+
+                <?php endif; ?>
+            </td>
+            <td>
+                <?php echo $product->price; ?>
+
+            </td>
+            <td>
+                <img src="<?php echo !empty($product->image_url) ? url($product->image_url) : NO_IMG; ?>" height="100px" width="100px"  />
+            </td>
+            <td>
+                <?php echo renderUrl('ProductController@edit', 'Sửa', [$product->id], ['class' => 'btn btn-warning']); ?>
+
+                <?php echo Form::open(array('method'=>'DELETE', 'action' => array('ProductController@destroy', $product->id), 'style' => 'display: inline-block;')); ?>
+
+                    <button class="btn btn-danger" title="xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa?');"><i class="glyphicon glyphicon-trash"></i></button>
+                <?php echo Form::close(); ?>
+
+            </td>
+            
+        </tr>
+        <?php endforeach; ?>
+    </table>
+    <div class="clear clearfix"></div>
+    <?php echo $data->appends(Request::except('page'))->links(); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

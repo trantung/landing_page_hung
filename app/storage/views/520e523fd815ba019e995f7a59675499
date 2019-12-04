@@ -1,0 +1,136 @@
+<?php echo $__env->make('hung.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+    <div class="content-product" >
+    	<!-- chen slide -->
+    	<?php echo $__env->make('hung.slide-kh', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> 
+
+       <?php echo Form::open(array('action' => array('OrderController@store'), 'method' => "POST", 'class' => 'layui-form')); ?>
+
+            <?php if($productFirst): ?>
+            <div id="image_top" class="image-p"> 
+                <img src="<?php echo $productFirst->image_url; ?>" id="sizeimg"/>
+            </div>
+            <?php endif; ?>
+  
+
+        <div id="sizeselect" class="imgs">
+            <?php foreach($products as $product): ?>
+            <div class="img" data-field="<?php echo $product->color; ?>" data-price="<?php echo $product->price; ?>" data-product-name="<?php echo $product->text; ?>" data-product-code="<?php echo $product->code; ?>" data-img="<?php echo $product->image_url; ?>" data-discount = "<?php echo $discount; ?>"> 
+                <div id="product_image_id" class="layui-elip" onclick="chooseProduct( <?php echo $product->id; ?>)">
+                    <img src="<?php echo $product->image_url; ?>" > 
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+          <input type="hidden" name="discount_default" value="<?php echo $discount; ?>">
+        <div class="title_p">
+            <h1 class="tite-p" id="product_name"><?php echo $productFirst->text; ?> <?php echo $sizeFirst->name; ?></h1>
+        </div>
+        <div class="form-group-p">
+            <label>Hình Thức</label>
+           <select class="form-control" id="kind" name="kind_id" onchange="return changeKind();">
+              <option value=""> Chọn một tùy chọn </option>
+              <?php foreach(AdminKind::lists('name', 'id') as $key => $value): ?>
+                <option value="<?php echo $key; ?>"> <?php echo $value; ?> </option>
+              <?php endforeach; ?> 
+           </select>
+        </div>  
+
+        <div class="form-group-p">
+            <label>Kích thước</label>
+            <select class="form-control" id="size" name="size_id" onchange="return changeSize();">
+              <option value=""> Chọn một tùy chọn </option>
+              <?php foreach(Size::lists('name', 'id') as $key => $value): ?>
+                <option value="<?php echo $key; ?>"> <?php echo $value; ?> </option>
+              <?php endforeach; ?> 
+           </select>
+        </div>
+        <div class="layui-product-meta">
+            <div class="layui-product-price"> 
+                <span class="market-price"> <del id="pri-num"><?php echo number_format($productFirst->price + $productFirst->price * $discount/100); ?></del> </span>
+                <span  id="promotion_price" class="sale-price"> <?php echo number_format($productFirst->price); ?>VNĐ</span>
+                 <input type="hidden" id="price_first" name="price_first" value="<?php echo $productFirst->price; ?>">
+                 <input type="hidden" name="product_id_first" value="<?php echo $productFirst->id; ?>">
+            </div>
+        </div>
+        <div  class="ranting">
+            <span class="star">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i> 
+            </span>
+            <span>(<?php echo $config->text_promotion_number; ?> người đã mua)</span>
+        </div>
+        <div class="content-ps">
+            <div class="w-6">
+             
+                <div class="layui-product-num">
+                    <span class="decrease">-</span>
+                    <input id = "number_default" type="text" name="number" maxlength="2" class="layui-input" value="1" readonly>
+                    <span class="increase">+</span>
+                </div>
+            </div> 
+             <div class="mobile_hihe remove_a" >
+                <a href="<?php echo $config->message_to; ?>"><?php echo $config->text_footer_left; ?></a> 
+            </div>
+        </div>
+        <div id="input-hidden" class="choose-product"></div>
+        <input type="hidden" name="product_id_first" value="<?php echo $productFirst->id; ?>"/>
+
+        <div class="layui-buy-footer layui-row">
+            <div id="remove_product">
+            <input type="hidden" id="price_first" name="price_first" value="<?php echo $productFirst->price; ?>">
+            </div>
+           
+            <div class="col-6" id="buy">
+                <input type="submit" value="<?php echo $config->text_next_step; ?>" lay-filter="nowBuy" lay-submit style="font-size: 15px;">
+            </div>
+        </div>
+
+        <?php echo Form::close(); ?>
+
+    </div>
+
+
+<div class="count_time">
+   <span><?php echo $config->text_number_sale_off; ?></span>
+   <h3>Thời gian khuyến mại</h3>
+   <div class="time_out">
+        <span id="d"></span>
+        <span id="t"></span>
+        <span id="m"></span>
+        <span id="s"></span>
+   </div>
+</div>
+<div class="hbg"></div>
+
+<script type="text/javascript">
+    function chooseProduct(product_id)
+    {
+        $.ajax({
+            url: "/ajax/product",
+            type: "post",
+            data: {
+                product_id : product_id
+            } ,
+            success: function (data) {
+                $('#remove_product').remove();
+                // $('#number_default').remove();
+                // $('#number_default').val() = 1;
+                // $('input[name="number"]').val(1);
+               var text = '<input id="price" type="hidden" name="price" value="'+data['price']+'">' + '<input id="color" type="hidden" name="product_id" value="'+product_id+'">'+
+               '<input type="hidden" id="price_first" name="price_first" value="'+data['price']+'">'
+               ;
+                $('#input-hidden').html(text);               
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+               console.log(textStatus, errorThrown);
+            }
+        });
+    }
+</script>
+<?php echo $__env->make('hung.script', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('hung.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

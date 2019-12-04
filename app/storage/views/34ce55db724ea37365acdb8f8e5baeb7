@@ -1,0 +1,32 @@
+<?php $__env->startSection('title'); ?>
+<?php echo $title='Size'; ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-primary">
+            <?php echo Form::open(array('action' => array('SizeController@store'), 'method' => "POST", 'files' => true)); ?>
+
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Name</label>
+                            <?php echo Form::text('name', '', array('class' => 'form-control' )); ?>
+
+                        </div>
+                    </div> 
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Lưu lại</button>
+                </div>
+            <?php echo Form::close(); ?>
+
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

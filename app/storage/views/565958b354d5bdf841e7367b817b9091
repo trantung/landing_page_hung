@@ -1,0 +1,64 @@
+
+
+<?php $__env->startSection('title'); ?>
+<?php echo $title='Product'; ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-primary">
+            <?php echo Form::open(array('action' => array('ProductController@store'), 'method' => "POST", 'files' => true)); ?>
+
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Name</label>
+                            <?php echo Form::text('text', '', array('class' => 'form-control' )); ?>
+
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Size(kích thước)</label>
+                            <?php echo Form::select('size', Size::lists('name', 'id'), array('class' => 'form-control' )); ?>
+
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Kind(hình thức)</label>
+                            <?php echo Form::select('kind', AdminKind::lists('name', 'id'), array('class' => 'form-control' )); ?>
+
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Price</label>
+                            <?php echo Form::text('price', '', array('class' => 'form-control' )); ?>
+
+                        </div>
+                    </div> 
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Ảnh</label>
+                            <input type="file" name="image_url" class="form-control"><br>
+                        </div>
+                    </div> 
+
+                </div>
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Lưu lại</button>
+                </div>
+            <?php echo Form::close(); ?>
+
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

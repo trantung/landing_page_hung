@@ -1,0 +1,44 @@
+
+
+<?php $__env->startSection('title'); ?>
+<?php echo $title='config chiết khấu'; ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-primary">
+            <?php echo Form::open(array('action' => array('AdminDiscountController@store'), 'method' => "POST")); ?>
+
+
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <legend>Thông tin config</legend>
+                            <div class="form-group">
+                                <label>% Chiết khấu <span class="text-warning">(*)</span></label>
+                                <?php echo Form::text('percent', $discount->percent, array('class' => 'form-control' )); ?>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Số lượng ít nhất để chiết khấu(ví dụ mua trên 2 sản phẩm mới được chiết khấu thì đặt = 2, mua trên 3 sp mới được ck đặt = 3..., nếu mua số lượng sp bất kì đều ck thì đặt = 1) <span class="text-warning">(*)</span></label>
+                                <?php echo Form::text('number', $discount->number, array('class' => 'form-control' )); ?>
+
+                            </div>
+
+                    </div> <?php /* End row */ ?>
+                </div> <?php /* End box-body */ ?>
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Lưu lại</button>
+                </div>
+            <?php echo Form::close(); ?>
+
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,78 @@
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title> <?php echo $__env->yieldContent('title'); ?> </title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+	<?php echo HTML::style('adminlte/bootstrap/css/bootstrap.min.css'); ?>
+
+	<?php echo HTML::style('adminlte/dist/css/font-awesome.min.css'); ?>
+
+	<?php echo HTML::style('adminlte/dist/css/ionicons.min.css'); ?>
+
+	<?php echo HTML::style('adminlte/dist/css/AdminLTE.min.css'); ?>
+
+	<?php echo HTML::style('adminlte/dist/css/admin.css'); ?>
+
+	<?php echo HTML::style('custom/css/jquery.timepicker.min.css'); ?>
+
+	<?php echo HTML::style('custom/css/print.min.css'); ?>
+
+	<?php echo HTML::style('adminlte/dist/css/skins/_all-skins.min.css'); ?>
+
+	<?php echo HTML::style('adminlte/plugins/datetimepicker/bootstrap-datetimepicker.min.css'); ?>
+
+	<?php echo HTML::style('adminlte/plugins/jQueryUI/jquery-ui.css'); ?>
+
+	<?php echo HTML::style('adminlte/plugins/bootstrap-select/bootstrap-select.min.css'); ?>
+
+	<?php echo HTML::style('custom/css/animate.css'); ?>
+
+	<?php echo HTML::style('custom/css/style.css'); ?>
+
+	<?php echo $__env->yieldContent('style_header'); ?>
+
+	<?php echo HTML::script('adminlte/plugins/jQuery/jQuery-2.1.4.min.js'); ?>
+
+	<?php echo HTML::script('adminlte/plugins/jQueryUI/jquery-ui.min.js'); ?>
+
+	<?php echo HTML::script('adminlte/bootstrap/js/bootstrap.min.js'); ?>
+
+	<?php echo HTML::script('adminlte/plugins/daterangepicker/moment.min.js'); ?>
+
+	<?php echo HTML::script('adminlte/plugins/datetimepicker/bootstrap-datetimepicker.min.js'); ?>
+
+	<?php echo HTML::script('adminlte/dist/js/app.min.js'); ?>
+
+	<?php echo HTML::script('custom/js/jquery.timepicker.min.js'); ?>
+
+	<?php echo HTML::script('custom/js/print.min.js'); ?>
+
+	<?php echo HTML::script('adminlte/plugins/bootstrap-select/bootstrap-select.min.js'); ?>
+
+	<?php echo HTML::script('custom/js/form-control.js'); ?>
+
+	<?php echo HTML::script('custom/js/ajax.js'); ?>
+
+	<?php echo HTML::script('custom/js/notification.js'); ?>
+
+
+	<?php echo $__env->yieldContent('js_header'); ?>
+
+	<script>
+		$(function () {
+
+			$('#datepicker').datepicker({
+				dateFormat: 'yy-mm-dd',
+			});
+
+			$('.timepicker').timepicker({
+				'minTime': '6:00am',
+				'maxTime': '00:00am',
+				'show2400': true,
+				'timeFormat': 'H:i'
+			})
+
+		});
+	</script>
+</head>

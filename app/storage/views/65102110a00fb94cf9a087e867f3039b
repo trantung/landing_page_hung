@@ -1,0 +1,122 @@
+<div class="slider_khach_hang">
+	<?php foreach($comments as $slideComment): ?>
+	<div class="item active">
+		<div class="images_kh">
+			<img src="<?php echo url($slideComment->image_url); ?>" />
+		</div>
+		<div class="contebt_kh">
+			<span><?php echo $slideComment->name; ?></span>
+			<i>(<?php echo $slideComment->comment; ?>)</i>
+		</div>
+	</div>
+	<?php endforeach; ?>
+</div>
+<script>
+jQuery(function() {
+
+  
+  // Loop the notification
+  (function loop() {
+      var rand = Math.round(Math.random() * 5000 ) + 8000;
+      setTimeout(function() {
+        changeNotification();
+        loop();  
+      }, rand);
+  }());
+
+  // Change notification
+  function changeNotification() {
+    showNotification();
+    setTimeout(function() {
+      hideNotification();
+    }, 6000) // duration
+  }
+  
+  // Show notification
+  function showNotification() {
+    jQuery(".slider_khach_hang").addClass("active");
+
+    if(jQuery('.slider_khach_hang .item:first-child').hasClass('active')  ){
+	 	jQuery('.slider_khach_hang').find('.item.active').next().addClass('active');
+	   	jQuery('.slider_khach_hang').find('.item.active').prev().removeClass('active');
+    }else if(jQuery('.slider_khach_hang .item:last-child').hasClass('active') ){
+    	jQuery('.slider_khach_hang').find('.item.active').next().removeClass('active');
+	   	jQuery('.slider_khach_hang .item:first-child').addClass('active');
+	   	jQuery('.slider_khach_hang .item:last-child').removeClass('active');
+    }else{
+    	jQuery('.slider_khach_hang').find('.item.active').next().addClass('active');
+	   	jQuery('.slider_khach_hang').find('.item.active').prev().removeClass('active');
+    }
+
+  }
+  
+  // Hide notification
+  function hideNotification() {
+    jQuery(".slider_khach_hang").removeClass("active");
+    jQuery('.slider_khach_hang .item').first().remove('active');
+  }
+
+});
+</script>
+
+<style>
+	.slider_khach_hang{
+		position: relative;
+		z-index: 9999999999999999;
+		left: -100%;
+		transition: all 2s ease;
+		opacity: 0;
+		position: fixed;
+		z-index: 9;
+		top: 0
+	}
+	.slider_khach_hang.active{
+		left: 0;
+		opacity: 1;
+	}
+	
+		.slider_khach_hang .items span{
+			display: block;
+			text-transform: uppercase;
+		}
+
+.contebt_kh {
+    max-width: 200px;
+    font-size: 13px;
+}
+.contebt_kh span {
+    color:   #fff;
+    display: block;
+    padding: 0 15px;
+}
+	.slider_khach_hang .item.active{
+		opacity: 1;
+	}
+	.slider_khach_hang .item {
+	    background: rgba(0,0,0,.85);
+	    width: 400px;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    opacity: 0;
+	    display: flex;
+	  	padding: 10px 10px 5px;
+	    max-width: 248px;
+
+	}
+		.slider_khach_hang .item img{
+			min-width: 60px;
+			height: 50px;
+		}
+	.contebt_kh i {
+	    color:   #fff; 
+	    padding: 5px 10px;
+	    display: block;
+	    font-size: 11px;
+
+	}
+	
+</style>
+
+
+
