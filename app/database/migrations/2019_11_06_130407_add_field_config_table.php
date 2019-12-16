@@ -14,7 +14,6 @@ class AddFieldConfigTable extends Migration {
     {
         Schema::table('configs', function(Blueprint $table) {
             $table->text('text2')->after('id')->nullable();
-            $table->text('text3')->after('id')->nullable();
         });
     }
 
